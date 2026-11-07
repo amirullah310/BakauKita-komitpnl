@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-white font-isi text-lumpur antialiased; font-size: 1rem; line-height: 1.65; }
+
+  /* Judul besar: serif tipis bergaya editorial; <em> dipakai untuk penekanan miring */
+  h1, h2 { @apply font-judul font-normal text-tinta; letter-spacing: -0.015em; line-height: 1.05; text-wrap: balance; }
+  h1 em, h2 em { @apply italic text-payau; }
+  h3 { @apply font-isi font-semibold tracking-tight text-tinta; line-height: 1.35; text-wrap: balance; }
+
+  a { @apply text-payau underline decoration-payau/30 underline-offset-4 transition-colors; }
+  a:hover { @apply decoration-payau; }
+  :focus-visible { outline: 2px solid theme("colors.akar"); outline-offset: 3px; border-radius: 6px; }
+  ::selection { background: theme("colors.pasir"); }
+}
+
+@layer components {
+  .wadah { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
+
+  .tombol { @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-[0.9375rem] font-semibold leading-none no-underline transition; }
+  .tombol-utama { @apply tombol bg-tinta text-white shadow-[0_1px_2px_rgba(14,26,11,0.2)] hover:bg-payau-gelap; }
+  .tombol-garis { @apply tombol border border-garis bg-white text-tinta hover:border-tinta; }
+  .tombol-bulat { @apply inline-flex h-11 w-11 items-center justify-center rounded-full border border-garis bg-white text-tinta no-underline transition hover:border-tinta; }
+
+  /* label kecil di atas judul section */
+  .label-atas { @apply text-xs font-semibold uppercase tracking-[0.16em] text-payau; }
+  .judul-section { @apply text-[2.5rem] sm:text-5xl; }
+  .teks-pengantar { @apply text-lg text-abu; }
+
+  .kartu { @apply rounded-3xl border border-garis bg-white; }
+  .kartu-lembut { @apply rounded-3xl bg-pasang; }
+
+  .chip { @apply rounded-full border px-4 py-2 text-sm font-semibold transition; }
+  .chip-aktif { @apply border-tinta bg-tinta text-white; }
+  .chip-pasif { @apply border-garis bg-white text-lumpur hover:border-tinta; }
+
+  .sumber { @apply text-sm text-abu; }
+  .label-isian { @apply mb-1.5 block text-sm font-semibold text-tinta; }
+  .isian { @apply w-full rounded-xl border border-garis bg-white px-4 py-3 text-lumpur outline-none transition placeholder:text-abu/70 focus:border-tinta focus:ring-4 focus:ring-payau/10; }
+  /* ditulis setelah .isian agar tetap menang saat kolom error sedang difokus */
+  .isian[aria-invalid="true"] { @apply border-akar bg-[#FCF6F3] focus:ring-akar/10; }
+  .pesan-galat { @apply mt-1.5 flex items-start gap-1.5 text-sm font-semibold text-akar; }
+
+  /* Masuk-keluar saat digulir (lihat useMuncul di App.jsx).
+     Default masuk dari bawah; setelah keluar lewat atas, elemen bersembunyi di atas
+     sehingga saat digulir balik ia turun ke tempatnya. */
+  .muncul {
+    opacity: 0; transform: translate3d(0, 28px, 0) scale(0.985);
+    transition: opacity 650ms ease, transform 800ms cubic-bezier(.2,.7,.2,1);
+    will-change: opacity, transform;
+  }
+  .muncul[data-arah="atas"] { transform: translate3d(0, -28px, 0) scale(0.985); }
+  .muncul.terlihat { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .muncul, .muncul[data-arah] { opacity: 1; transform: none; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+}

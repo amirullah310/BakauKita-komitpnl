@@ -1,0 +1,86 @@
+# BakauKita – Pulihkan Mangrove Pesisir Aceh
+
+Website kampanye dan edukasi restorasi mangrove untuk pesisir Kota Lhokseumawe dan pantai timur Aceh. Dibuat untuk **Web Design Competition Techno Versary Vol. II 2026** dengan tema *EcoDigital For Environment*, sub-tema Konservasi dan Edukasi Lingkungan.
+
+**Demo:** [isi tautan GitHub Pages setelah diterbitkan]
+
+## Deskripsi
+
+Kota Lhokseumawe hanya memiliki sekitar 88 hektare hutan mangrove, sementara sebagian besar mangrove di pantai timur Aceh berada dalam kondisi rusak berat dan sedang. BakauKita mengajak warga, pelajar, dan mahasiswa untuk memahami fungsi bakau, lalu ikut menanam dan merawatnya.
+
+Fitur utama:
+
+- **Ilustrasi pasang surut interaktif** di beranda: pengunjung mengatur ketinggian air dan membandingkan pantai dengan dan tanpa sabuk bakau.
+- **Simulasi tanam**: menghitung luas lahan yang pulih, potensi simpanan karbon, dan perkiraan bibit yang bertahan dari jumlah bibit dan jarak tanam yang dipilih.
+- **Grafik luas mangrove** pantai timur Aceh per kabupaten/kota.
+- **Artikel** edukasi dengan sumber data yang jelas.
+- **Galeri** jenis bakau dan satwa dengan filter dan tampilan detail (dialog).
+- **Formulir pendaftaran relawan** dengan validasi dan FAQ.
+
+Halaman yang tersedia: Beranda, Tentang, Artikel, Galeri, dan Kontak.
+
+## Teknologi
+
+- [React 18](https://react.dev) + [Vite 5](https://vitejs.dev)
+- [Tailwind CSS 3](https://tailwindcss.com)
+- Font Instrument Serif (judul) dan Plus Jakarta Sans (isi) melalui [Fontsource](https://fontsource.org) (lisensi SIL Open Font License, disimpan lokal tanpa CDN)
+
+Seluruh komponen dibuat sendiri oleh tim. Proyek ini **tidak memakai template, UI kit, atau komponen berbayar/premium**. Ilustrasi pasang surut interaktif dan ilustrasi galeri adalah SVG buatan tim. Ilustrasi, ikon, dan latar lainnya berasal dari paket aset `Mangrove_Web_Assets.zip` (disimpan di `src/assets/`, dibersihkan dan dikonversi ke WebP). Tidak ada foto dari pihak lain.
+
+## Instalasi dan Menjalankan Proyek
+
+Prasyarat: [Node.js](https://nodejs.org) versi 18 atau lebih baru.
+
+```bash
+# 1. Clone repository
+git clone https://github.com/[username]/[nama-repo].git
+cd [nama-repo]/webdesign_komitpnl_technoversary_vol.II
+
+# 2. Pasang dependensi
+npm install
+
+# 3. Jalankan mode pengembangan, lalu buka http://localhost:5173
+npm run dev
+
+# 4. Build untuk produksi (hasil di folder dist/)
+npm run build
+
+# 5. Pratinjau hasil build
+npm run preview
+```
+
+## Struktur Folder
+
+```
+webdesign_komitpnl_technoversary_vol.II/
+├── public/              logo, favicon, dan ikon aplikasi
+├── src/
+│   ├── assets/          ilustrasi, ikon, dan latar (WebP) dari paket aset
+│   ├── components/      Navbar, Footer, KepalaHalaman, Gambar, TideHero (ilustrasi pasang surut), Simulasi, Ilustrasi (SVG)
+│   ├── data/            artikel, galeri, sumber data, dan daftar aset gambar
+│   ├── pages/           Beranda, Tentang, Artikel, Galeri, Kontak
+│   ├── App.jsx          router sederhana berbasis hash (#tentang, #artikel, ...)
+│   └── index.css        gaya dasar Tailwind
+└── index.html
+```
+
+## Hosting (GitHub Pages)
+
+Repository sudah berisi workflow `.github/workflows/deploy.yml`. Letakkan folder `.github` di root repository, lalu aktifkan **Settings → Pages → Source: GitHub Actions**. Situs akan otomatis diterbitkan setiap kali ada push ke branch `main`.
+
+## Sumber Data
+
+- Donato, D. C., dkk. (2011). Mangroves among the most carbon-rich forests in the tropics. *Nature Geoscience*, 4, 293–297.
+- Mongabay Indonesia. (2022). Mangrove di Aceh rusak, siapa yang peduli? (data WWF Indonesia & Aceh Wetland Foundation).
+- Dewiyanti, I. & Yunita. Identifikasi dan kelimpahan hama penyebab ketidakberhasilan rehabilitasi ekosistem mangrove (mengutip Bengen, 2000).
+- ANTARA. (2021). BRGM ajak stakeholder perkuat rehabilitasi di Hari Mangrove Sedunia.
+
+## Tim
+
+**Nama tim:** komitpnl, Politeknik Negeri Lhokseumawe
+
+| Nama | NIM | Peran |
+| --- | --- | --- |
+| Amirullah | 2024573010018 | Ketua tim |
+| [Nama Anggota] | [NIM] | [Peran] |
+| [Nama Anggota] | [NIM] | [Peran] |
