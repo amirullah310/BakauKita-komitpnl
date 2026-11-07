@@ -1,5 +1,7 @@
 import TideHero from "../components/TideHero.jsx";
 import Simulasi from "../components/Simulasi.jsx";
+import AksiRumah from "../components/AksiRumah.jsx";
+import Kuis from "../components/Kuis.jsx";
 import { ARTIKEL } from "../data/artikel.js";
 import { SUMBER, LUAS_LHOKSEUMAWE, LUAS_ACEH } from "../data/sumber.js";
 import { ILUSTRASI, IKON, LATAR, DEKOR } from "../data/aset.js";
@@ -24,7 +26,7 @@ const PERAN = [
 ];
 
 const LANGKAH = [
-  ["Daftar sebagai relawan", "Isi formulir di halaman Kontak dan pilih jadwal kegiatan yang sesuai."],
+  ["Daftar sebagai relawan", "Isi formulir di halaman Kontak. Tim akan menghubungimu untuk mengatur jadwal kegiatan."],
   ["Ikut pengenalan singkat", "Belajar jenis bakau, cara menanam, dan keselamatan di area lumpur."],
   ["Menanam saat air surut", "Bibit ditanam bersama warga di titik yang sudah disurvei sebelumnya."],
   ["Merawat selama 12 bulan", "Membersihkan teritip, mengganti bibit yang mati, dan mencatat pertumbuhan."],
@@ -145,6 +147,9 @@ export default function Beranda() {
         </div>
       </section>
 
+      <AksiRumah />
+      <Kuis />
+
       {/* BACAAN */}
       <section aria-labelledby="judul-bacaan" className="wadah pt-28 sm:pt-36">
         <div className="flex flex-wrap items-end justify-between gap-4">
@@ -152,7 +157,8 @@ export default function Beranda() {
           <a href="#artikel" className="tombol-garis muncul">Semua artikel</a>
         </div>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {ARTIKEL.slice(0, 3).map((a, i) => (
+          {/* data artikel berurutan dari terlama, jadi tiga terakhir dibalik agar yang terbaru tampil pertama */}
+          {ARTIKEL.slice(-3).reverse().map((a, i) => (
             <div key={a.slug} className="muncul" style={{ transitionDelay: `${i * 90}ms` }}>
               <KartuArtikel a={a} />
             </div>
@@ -167,7 +173,7 @@ export default function Beranda() {
           <div className="absolute inset-x-0 top-0 h-2/3 bg-gradient-to-b from-white/40 to-transparent" aria-hidden="true" />
           <div className="relative">
             <h2 id="judul-ajakan" className="judul-section mx-auto max-w-2xl sm:text-6xl">Siap turun ke lumpur? <em>Ayo menanam.</em></h2>
-            <p className="mx-auto mt-4 max-w-md text-lumpur">Kegiatan tanam dan rawat digelar saat air surut. Gratis, bibit dan alat disediakan.</p>
+            <p className="mx-auto mt-4 max-w-md text-lumpur">Kegiatan tanam dan rawat dirancang berlangsung saat air surut, bersama warga dan mitra setempat. Daftar dulu, jadwalnya kami kabari.</p>
             <a href="#kontak" className="tombol-utama mt-7">Daftar jadi relawan</a>
           </div>
         </div>

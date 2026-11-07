@@ -32,7 +32,7 @@ export default function Footer() {
         <div>
           <h2 className="font-isi text-sm font-semibold tracking-normal text-tinta">Tentang situs ini</h2>
           <p className="mt-3 text-sm text-abu">
-            Dibuat oleh Tim komitpnl, Politeknik Negeri Lhokseumawe, untuk Web Design Competition Techno Versary Vol. II 2026.
+            BakauKita adalah konsep kampanye yang dirancang dan dibangun oleh Tim komitpnl, Politeknik Negeri Lhokseumawe, untuk Web Design Competition Techno Versary Vol. II 2026.
           </p>
         </div>
       </div>

@@ -6,7 +6,8 @@ const EMAIL_TIM = "komit@pnl.ac.id";
 
 const TANYA = [
   ["Siapa saja yang bisa menjadi relawan?", "Pelajar, mahasiswa, dan warga umum berusia 15 tahun ke atas. Peserta di bawah 18 tahun perlu izin orang tua atau sekolah."],
-  ["Apakah ada biaya untuk ikut?", "Tidak. Bibit dan peralatan tanam disediakan bersama mitra kegiatan."],
+  ["Apakah ada biaya untuk ikut?", "Kegiatan dirancang tanpa biaya bagi relawan. Bibit dan peralatan diupayakan bersama mitra kegiatan, dan rinciannya diumumkan bersama jadwal."],
+  ["Apakah BakauKita organisasi resmi?", "Belum. BakauKita adalah konsep kampanye yang dirancang Tim komitpnl, Politeknik Negeri Lhokseumawe. Pendaftaran dikirim ke email tim, lalu kegiatan lapangan dikoordinasikan bersama mitra setempat."],
   ["Apa yang perlu dibawa saat menanam?", "Sepatu bot atau alas kaki yang aman untuk lumpur, topi, pakaian ganti, dan air minum sendiri."],
   ["Kapan waktu menanam terbaik?", "Saat air surut, ketika lumpur terbuka dan bibit bisa ditanam dengan aman. Jadwal pasti mengikuti tabel pasang surut setempat."],
 ];
@@ -62,7 +63,7 @@ export default function Kontak() {
           <div className="kartu p-8 sm:p-10" role="status">
             <img src={IKON.bibit} alt="" width="56" height="56" className="h-14 w-14" />
             <h2 className="mt-6 text-4xl">Pesanmu siap dikirim</h2>
-            <p className="mt-3 text-abu">Periksa aplikasi email yang terbuka, lalu tekan kirim. Kami akan membalas dengan jadwal kegiatan terdekat.</p>
+            <p className="mt-3 text-abu">Periksa aplikasi email yang terbuka, lalu tekan kirim. Tim akan membalas dengan informasi kegiatan berikutnya.</p>
             <p className="mt-3 text-abu">Jika aplikasi email tidak terbuka, kirim pesanmu langsung ke <a href={`mailto:${EMAIL_TIM}`}>{EMAIL_TIM}</a>.</p>
             <button type="button" className="tombol-garis mt-6" onClick={() => { setTerkirim(false); setData({ nama: "", email: "", peran: PERAN[0], pesan: "" }); }}>Isi formulir lagi</button>
           </div>

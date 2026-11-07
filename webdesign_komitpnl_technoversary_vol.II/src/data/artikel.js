@@ -1,7 +1,89 @@
 import { SUMBER } from "./sumber.js";
 
-// Setiap artikel: paragraf disimpan sebagai array agar mudah ditambah/diubah tim
+// Setiap artikel: paragraf disimpan sebagai array agar mudah ditambah/diubah tim.
+// Urutan array = urutan terbit (terlama di atas); halaman menampilkan yang terbaru lebih dulu.
 export const ARTIKEL = [
+  {
+    slug: "mangrove-indonesia",
+    gambar: "hutan",
+    judul: "Indonesia, rumah bagi seperlima mangrove dunia",
+    ringkas: "Indonesia memiliki salah satu hutan mangrove terluas di dunia. Luasnya besar, tetapi sebagian dalam kondisi kritis.",
+    tanggal: "27 Oktober 2026",
+    menit: 3,
+    isi: [
+      ["p", "Garis pantai Indonesia yang panjang menjadikannya salah satu negara dengan hutan mangrove terluas di dunia. Menurut data yang dikutip Katadata, sekitar 21% hutan mangrove dunia berada di Indonesia."],
+      ["h", "Berapa luasnya?"],
+      ["p", "Peta Mangrove Nasional 2021 mencatat luas mangrove Indonesia sekitar 3,36 juta hektare. Angka ini sedikit lebih besar dibanding pemetaan sebelumnya, yaitu sekitar 3,31 juta hektare."],
+      ["p", "Luas yang besar tidak berarti aman. Sekitar 637 ribu hektare mangrove Indonesia masuk kategori kritis dan perlu direhabilitasi. Di tingkat lokal, Kota Lhokseumawe hanya memiliki sekitar 88 hektare mangrove."],
+      ["h", "Hari Mangrove Sedunia"],
+      ["p", "Setiap 26 Juli diperingati sebagai Hari Internasional Konservasi Ekosistem Mangrove, yang ditetapkan UNESCO pada 2015. Momen ini bisa dimanfaatkan sekolah dan kampus untuk kegiatan edukasi dan aksi tanam."],
+    ],
+    sumber: [SUMBER.pmn, SUMBER.katadata, SUMBER.brgm, SUMBER.hariMangrove],
+  },
+  {
+    slug: "plastik-dan-bibit-bakau",
+    gambar: "bibit",
+    judul: "Sampah plastik, ancaman diam-diam bagi bakau",
+    ringkas: "Plastik yang terbawa arus menumpuk di lantai hutan bakau. Pohon dewasa cukup tahan, tetapi bibit muda paling terancam.",
+    tanggal: "29 Oktober 2026",
+    menit: 3,
+    isi: [
+      ["p", "Hutan bakau berada di antara darat dan laut, sehingga sampah dari sungai dan pantai mudah tersangkut di antara akarnya. Bagi bakau, sampah plastik bukan sekadar pemandangan yang tidak enak dilihat."],
+      ["h", "Temuan di pesisir utara Jawa"],
+      ["p", "Penelitian van Bijsterveldt dan rekan (2021) di pesisir utara Jawa mencatat rata-rata 27 sampah plastik per meter persegi lantai hutan mangrove. Di beberapa lokasi, plastik menutupi hingga separuh permukaan tanah, dan ada yang terkubur hingga kedalaman 35 sentimeter."],
+      ["p", "Pohon bakau dewasa ternyata cukup tahan bila sebagian akarnya tertutup plastik. Namun para peneliti mengingatkan, jika plastik terus menumpuk, hutan bakau lama-kelamaan akan merosot. Plastik di lapisan atas tanah menghalangi akar mendapat oksigen."],
+      ["h", "Kenapa penting untuk rehabilitasi"],
+      ["p", "Menurut peneliti yang sama, program rehabilitasi sering hanya menghitung jumlah bibit yang ditanam, padahal sampah plastik ikut menentukan apakah bibit muda bisa bertahan hidup. Karena itu, penanaman perlu dibarengi pengelolaan sampah."],
+      ["ul", [
+        "Bawa pulang sampahmu saat ke pantai atau sungai.",
+        "Saat kegiatan perawatan, angkat plastik yang menutupi atau melilit bibit.",
+        "Dorong pengelolaan sampah di gampong yang dekat dengan sungai dan pesisir.",
+      ]],
+    ],
+    sumber: [SUMBER.plastik, SUMBER.nioz],
+  },
+  {
+    slug: "cara-menanam-bakau",
+    gambar: "kelompok",
+    judul: "Cara menanam bakau yang benar, bukan asal tancap",
+    ringkas: "Banyak penanaman gagal karena hal kecil: propagul ditanam terlalu dangkal, ajir tidak diikat, atau waktu tanam tidak tepat.",
+    tanggal: "31 Oktober 2026",
+    menit: 4,
+    isi: [
+      ["p", "Menanam bakau terlihat sederhana: tancapkan bibit di lumpur, selesai. Kenyataannya, banyak penanaman gagal karena langkah-langkah kecil yang diabaikan."],
+      ["h", "Sebelum menanam"],
+      ["ul", [
+        "Pilih jenis yang sesuai dengan lokasi. Setiap jenis bakau punya zona tumbuh sendiri di wilayah pasang surut.",
+        "Gunakan propagul atau bibit yang sudah matang dan sehat, tidak busuk atau berlubang.",
+        "Pilih waktu saat air surut agar lumpur terbuka dan bibit bisa ditanam dengan aman.",
+      ]],
+      ["h", "Saat menanam"],
+      ["p", "Badan Restorasi Gambut dan Mangrove (BRGM) mengingatkan agar propagul tidak sekadar dijatuhkan atau ditancapkan asal-asalan. Propagul yang ditanam terlalu dangkal mudah roboh dan terbawa arus sebelum akarnya tumbuh."],
+      ["p", "Pasang ajir, yaitu tiang kecil di samping bibit. Ajir berfungsi sebagai penanda bahwa di titik itu sudah ada tanaman, sekaligus penguat bibit. Agar benar-benar menguatkan, bibit perlu diikat ke ajir."],
+      ["h", "Setelah menanam"],
+      ["p", "Perawatan menentukan keberhasilan. Di Aceh, salah satu penyebab gagalnya rehabilitasi mangrove adalah hama seperti teritip yang menempel pada bibit. Karena itu relawan perlu rutin membersihkan bibit, menyulam bibit yang mati, dan mencatat pertumbuhannya."],
+    ],
+    sumber: [SUMBER.teknikTanam, SUMBER.dewiyanti],
+  },
+  {
+    slug: "silvofishery",
+    gambar: "menanam",
+    judul: "Silvofishery: tambak dan bakau bisa berdampingan",
+    ringkas: "Pembukaan tambak termasuk penyebab hilangnya mangrove. Silvofishery menawarkan jalan tengah: tambak tetap jalan, bakau tetap tumbuh.",
+    tanggal: "1 November 2026",
+    menit: 3,
+    isi: [
+      ["p", "Di pantai timur Aceh, pertambakan termasuk penyebab menyusutnya hutan mangrove. Namun melarang tambak sepenuhnya juga bukan solusi, karena banyak keluarga pesisir menggantungkan hidup darinya."],
+      ["h", "Apa itu silvofishery?"],
+      ["p", "Silvofishery atau wanamina adalah pola budidaya yang memadukan tambak ikan atau udang dengan tanaman mangrove di dalam atau di sekitar tambak. Tujuannya ganda: menjaga fungsi ekologis mangrove sekaligus mempertahankan hasil tambak."],
+      ["h", "Manfaatnya"],
+      ["p", "Satu studi di Cilacap yang dimuat Jurnal Akuatika Indonesia mencatat produksi bandeng di tambak silvofishery lebih tinggi dibanding tambak tanpa mangrove, yaitu sekitar 66 gram per meter persegi dibanding 28 gram per meter persegi."],
+      ["p", "Penelitian yang dikutip Mongabay juga menemukan tambak silvofishery dengan tutupan mangrove 44–80% mampu menyimpan sekitar 40–59 ton karbon per hektare."],
+      ["h", "Tantangannya"],
+      ["p", "Ada tarik-menarik: makin banyak mangrove baik untuk lingkungan, tetapi petambak ingin kolam yang lebih luas. Karena hasil tiap lokasi bisa berbeda, penerapan silvofishery perlu disesuaikan dengan kondisi setempat dan melibatkan petambak sejak awal."],
+    ],
+    sumber: [SUMBER.akuatika, SUMBER.silvofishery, SUMBER.mongabay],
+  },
   {
     slug: "penjaga-pantai",
     gambar: "lindungi", // kunci ILUSTRASI di data/aset.js
@@ -75,5 +157,28 @@ export const ARTIKEL = [
       ["p", "Secara nasional, sekitar 637 ribu hektare mangrove Indonesia masuk kategori kritis, sehingga rehabilitasi membutuhkan keterlibatan masyarakat yang tinggal di sekitarnya."],
     ],
     sumber: [SUMBER.mongabay, SUMBER.brgm],
+  },
+  {
+    slug: "mangrove-dan-tsunami-aceh",
+    gambar: "pulau",
+    judul: "Mangrove dan tsunami Aceh 2004: pelindung, bukan tembok",
+    ringkas: "Setelah tsunami 2004, bakau sering disebut penyelamat pantai. Penelitian menunjukkan perannya nyata, tetapi ada batasnya.",
+    tanggal: "7 November 2026",
+    menit: 4,
+    isi: [
+      ["p", "Tsunami 26 Desember 2004 adalah salah satu bencana terbesar dalam sejarah Aceh. Setelahnya, banyak pihak menanam mangrove dan pohon pantai, sebagian karena muncul kesaksian bahwa kawasan di belakang hutan pantai lebih selamat. Seberapa benar anggapan itu?"],
+      ["h", "Apa kata penelitian"],
+      ["p", "Danielsen dan rekan (2005) dalam jurnal Science meneliti pesisir Cuddalore di Tamil Nadu, India, yang juga dilanda tsunami yang sama. Mereka menemukan kawasan yang terlindung hutan mangrove dan pohon pantai mengalami kerusakan lebih ringan dibanding kawasan pantai yang terbuka."],
+      ["p", "Temuan ini kemudian dikritisi. Kerr dan Baird (2007) dalam jurnal BioScience mengingatkan bahwa sebagian besar bukti awal tentang peran vegetasi bersifat anekdot, yaitu kesaksian yang belum diuji secara ilmiah. Menurut tinjauan mereka, vegetasi pantai juga tidak terbukti mengurangi seberapa jauh air masuk ke daratan."],
+      ["p", "Laporan FAO yang disusun Forbes dan Broadhead (2007) mencoba merangkum kedua sisi. Kesimpulannya: di banyak lokasi, hutan pantai memang mengurangi dampak tsunami, tetapi perlindungannya hanya sebagian terhadap genangan dan makin berkurang ketika gelombang sangat besar."],
+      ["h", "Pelajaran untuk pesisir Lhokseumawe"],
+      ["ul", [
+        "Mangrove adalah lapisan pelindung, bukan tembok. Perannya paling nyata dalam menahan abrasi, gelombang sehari-hari, dan badai.",
+        "Untuk tsunami, keselamatan tetap bergantung pada peringatan dini dan jalur evakuasi. Kenali rute evakuasi di gampong atau kampusmu.",
+        "Menanam harus tepat jenis dan lokasi, lalu dirawat. Rehabilitasi mangrove di Aceh setelah tsunami banyak yang gagal, salah satunya karena serangan hama seperti teritip pada bibit.",
+      ]],
+      ["p", "Jadi, menanam bakau tetap penting, asal kita jujur tentang batasnya: bakau melindungi pesisir dari hari ke hari, sementara kesiapsiagaan bencana melindungi nyawa."],
+    ],
+    sumber: [SUMBER.danielsen, SUMBER.kerr, SUMBER.fao, SUMBER.dewiyanti],
   },
 ];

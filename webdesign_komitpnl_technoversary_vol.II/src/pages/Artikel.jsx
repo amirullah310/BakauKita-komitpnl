@@ -1,4 +1,5 @@
 import { ARTIKEL } from "../data/artikel.js";
+import { GLOSARIUM } from "../data/edukasi.js";
 import { ILUSTRASI } from "../data/aset.js";
 import Gambar from "../components/Gambar.jsx";
 import KepalaHalaman from "../components/KepalaHalaman.jsx";
@@ -69,7 +70,8 @@ function Baca({ a }) {
 export default function Artikel({ slug }) {
   const pilih = ARTIKEL.find((a) => a.slug === slug);
   if (pilih) return <Baca a={pilih} />;
-  const [utama, ...lain] = ARTIKEL;
+  // terbaru lebih dulu; artikel paling baru menjadi kartu utama
+  const [utama, ...lain] = [...ARTIKEL].reverse();
   return (
     <section aria-labelledby="judul-artikel">
       <KepalaHalaman id="judul-artikel" label="Artikel" judul={<>Bacaan singkat tentang <em>mangrove</em></>}>
@@ -89,14 +91,32 @@ export default function Artikel({ slug }) {
           </div>
         </a>
 
-        <div className="mt-6 grid gap-5 md:grid-cols-3">
+        <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {lain.map((a, i) => (
-            <div key={a.slug} className="muncul" style={{ transitionDelay: `${i * 90}ms` }}>
+            <div key={a.slug} className="muncul" style={{ transitionDelay: `${(i % 3) * 90}ms` }}>
               <KartuArtikel a={a} Judul="h2" />
             </div>
           ))}
         </div>
       </div>
+
+      <section aria-labelledby="judul-glosarium" className="wadah pt-24 sm:pt-32">
+        <div className="muncul grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <p className="label-atas">Glosarium</p>
+            <h2 id="judul-glosarium" className="judul-section mt-3">Istilah yang sering <em>muncul</em></h2>
+            <p className="teks-pengantar mt-4">Penjelasan singkat istilah dalam artikel, dari akar bakau sampai karbon biru.</p>
+          </div>
+          <dl className="divide-y divide-garis border-y border-garis">
+            {GLOSARIUM.map(([istilah, arti]) => (
+              <div key={istilah} className="grid gap-1 py-5 sm:grid-cols-[11rem_1fr] sm:gap-6">
+                <dt className="font-semibold text-tinta">{istilah}</dt>
+                <dd className="text-abu">{arti}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
     </section>
   );
 }
