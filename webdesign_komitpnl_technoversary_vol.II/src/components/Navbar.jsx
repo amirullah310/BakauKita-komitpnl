@@ -5,6 +5,7 @@ const MENU = [
   ["tentang", "Tentang"],
   ["artikel", "Artikel"],
   ["galeri", "Galeri"],
+  ["kontak", "Kontak"],
 ];
 
 // Logo BakauKita (public/logo.webp, latar transparan). Dekoratif: nama "BakauKita" selalu ditulis di sebelahnya.
@@ -85,7 +86,7 @@ export default function Navbar({ aktif }) {
           ))}
         </ul>
         <div className="hidden justify-self-end md:block">
-          <a href="#kontak" aria-current={aktif === "kontak" ? "page" : undefined} className="tombol-utama px-4 py-2.5 text-sm">
+          <a href="#kontak" className="tombol-utama px-4 py-2.5 text-sm">
             Jadi relawan
           </a>
         </div>
