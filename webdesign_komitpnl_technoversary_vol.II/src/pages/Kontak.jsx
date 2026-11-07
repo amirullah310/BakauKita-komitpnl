@@ -2,7 +2,7 @@ import { useState } from "react";
 import KepalaHalaman from "../components/KepalaHalaman.jsx";
 import { ILUSTRASI, IKON } from "../data/aset.js";
 
-const EMAIL_TIM = "komitpnl@contoh.id"; // ganti dengan email resmi tim
+const EMAIL_TIM = "komit@pnl.ac.id";
 
 const TANYA = [
   ["Siapa saja yang bisa menjadi relawan?", "Pelajar, mahasiswa, dan warga umum berusia 15 tahun ke atas. Peserta di bawah 18 tahun perlu izin orang tua atau sekolah."],
@@ -53,7 +53,7 @@ export default function Kontak() {
 
   return (
     <section aria-labelledby="judul-kontak">
-      <KepalaHalaman id="judul-kontak" label="Jadi relawan" judul={<>Ikut menanam, ikut <em>merawat</em></>} gambar={ILUSTRASI.menanam}>
+      <KepalaHalaman id="judul-kontak" label="Jadi relawan" judul={<>Ikut menanam, ikut <em>merawat</em></>} gambar={ILUSTRASI.kelompok}>
         Isi formulir di bawah ini. Setelah kamu menekan tombol kirim, aplikasi email akan terbuka dengan pesan yang sudah terisi dan siap dikirim ke tim kami.
       </KepalaHalaman>
 

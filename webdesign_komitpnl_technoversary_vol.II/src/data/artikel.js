@@ -4,7 +4,7 @@ import { SUMBER } from "./sumber.js";
 export const ARTIKEL = [
   {
     slug: "penjaga-pantai",
-    gambar: "lindungi", // kunci ILUSTRASI di aset.jsx
+    gambar: "lindungi", // kunci ILUSTRASI di data/aset.js
     judul: "Kenapa bakau disebut penjaga pantai",
     ringkas: "Akar bakau bekerja seperti pagar alami yang meredam gelombang dan menahan lumpur agar pantai tidak terkikis.",
     tanggal: "2 November 2026",
@@ -22,7 +22,7 @@ export const ARTIKEL = [
   },
   {
     slug: "menanam-saja-tidak-cukup",
-    gambar: "bibit",
+    gambar: "relawan",
     judul: "Menanam saja tidak cukup: pentingnya merawat bibit",
     ringkas: "Sebagian besar bibit mangrove bisa mati sebelum berumur satu tahun. Perawatan menentukan berhasil atau gagalnya penanaman.",
     tanggal: "4 November 2026",

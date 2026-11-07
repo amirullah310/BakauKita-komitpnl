@@ -1,8 +1,8 @@
 # BakauKita – Pulihkan Mangrove Pesisir Aceh
 
-Website kampanye dan edukasi restorasi mangrove untuk pesisir Kota Lhokseumawe dan pantai timur Aceh. Dibuat untuk **Web Design Competition Techno Versary Vol. II 2026** dengan tema *EcoDigital For Environment*, sub-tema Konservasi dan Edukasi Lingkungan.
+Website kampanye dan edukasi restorasi mangrove untuk pesisir Kota Lhokseumawe dan pantai timur Aceh. Dibuat untuk **Web Design Competition Techno Versary Vol. II 2026** dengan tema *EcoDigital For Environment*, sub-tema **Kampanye Peduli Lingkungan** dan **Edukasi Lingkungan**.
 
-**Demo:** [isi tautan GitHub Pages setelah diterbitkan]
+**Demo:** https://amirullah310.github.io/BakauKita-komitpnl/
 
 ## Deskripsi
 
@@ -25,7 +25,13 @@ Halaman yang tersedia: Beranda, Tentang, Artikel, Galeri, dan Kontak.
 - [Tailwind CSS 3](https://tailwindcss.com)
 - Font Instrument Serif (judul) dan Plus Jakarta Sans (isi) melalui [Fontsource](https://fontsource.org) (lisensi SIL Open Font License, disimpan lokal tanpa CDN)
 
-Seluruh komponen dibuat sendiri oleh tim. Proyek ini **tidak memakai template, UI kit, atau komponen berbayar/premium**. Ilustrasi pasang surut interaktif dan ilustrasi galeri adalah SVG buatan tim. Ilustrasi, ikon, dan latar lainnya berasal dari paket aset `Mangrove_Web_Assets.zip` (disimpan di `src/assets/`, dibersihkan dan dikonversi ke WebP). Tidak ada foto dari pihak lain.
+Seluruh komponen dibuat sendiri oleh tim. Proyek ini **tidak memakai template, UI kit, atau komponen berbayar/premium**.
+
+**Asal aset visual:**
+
+- Ilustrasi pasang surut interaktif di beranda adalah SVG yang digambar tim langsung dalam kode.
+- Logo, ilustrasi, stiker, ikon, gambar spesies galeri, dan latar dibuat oleh tim menggunakan **AI image generator**, lalu dipilih, dibersihkan (latar transparan, potongan sisa, sudut), dan dikonversi ke WebP oleh tim. Hasilnya disimpan di `src/assets/` (logo di `public/`).
+- Tidak ada foto, ilustrasi, atau aset yang diunduh dari pihak lain.
 
 ## Instalasi dan Menjalankan Proyek
 
@@ -55,8 +61,8 @@ npm run preview
 webdesign_komitpnl_technoversary_vol.II/
 ├── public/              logo, favicon, dan ikon aplikasi
 ├── src/
-│   ├── assets/          ilustrasi, ikon, dan latar (WebP) dari paket aset
-│   ├── components/      Navbar, Footer, KepalaHalaman, Gambar, TideHero (ilustrasi pasang surut), Simulasi, Ilustrasi (SVG)
+│   ├── assets/          ilustrasi, stiker, ikon, gambar spesies, dan latar (WebP) dari paket aset
+│   ├── components/      Navbar, Footer, KepalaHalaman, Gambar, TideHero (ilustrasi pasang surut SVG), Simulasi
 │   ├── data/            artikel, galeri, sumber data, dan daftar aset gambar
 │   ├── pages/           Beranda, Tentang, Artikel, Galeri, Kontak
 │   ├── App.jsx          router sederhana berbasis hash (#tentang, #artikel, ...)
@@ -82,5 +88,5 @@ Repository sudah berisi workflow `.github/workflows/deploy.yml`. Letakkan folder
 | Nama | NIM | Peran |
 | --- | --- | --- |
 | Amirullah | 2024573010018 | Ketua tim |
-| [Nama Anggota] | [NIM] | [Peran] |
-| [Nama Anggota] | [NIM] | [Peran] |
+| Muhammad Aziz | 2024573010089 | Anggota tim |
+| Muhammad Alfisyahrin Muzhaffar | 2024573010113 | Anggota tim |

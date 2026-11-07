@@ -1,0 +1,17 @@
+# Bahan mentah yang tidak perlu ikut ke repository
+# (paket aset asli sudah dibersihkan dan disimpan di webdesign_komitpnl_technoversary_vol.II/src/assets/)
+*.zip
+*.pdf
+
+# Hasil build dan dependensi (cadangan; folder proyek juga punya .gitignore sendiri)
+node_modules/
+dist/
+
+# Berkas sistem dan editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.log

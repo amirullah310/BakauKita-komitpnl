@@ -10,11 +10,11 @@ const fmt = (n, d = 0) => n.toLocaleString("id-ID", { minimumFractionDigits: d, 
 
 // Deret ilustrasi di bawah hero: perjalanan satu bibit hingga menjadi hutan yang terlindungi
 const PERJALANAN = [
-  { aset: ILUSTRASI.bibit, teks: "Bibit", kelas: "w-[78%]" },
-  { aset: ILUSTRASI.menanam, teks: "Ditanam bersama", kelas: "w-full" },
-  { aset: ILUSTRASI.hutan, teks: "Tumbuh jadi hutan", kelas: "w-full" },
-  { aset: ILUSTRASI.drone, teks: "Dipantau", kelas: "w-[92%]", sembunyiHp: true },
-  { aset: ILUSTRASI.lindungi, teks: "Melindungi pesisir", kelas: "w-[70%]", sembunyiHp: true },
+  { aset: ILUSTRASI.bibit, teks: "Bibit", kelas: "w-[62%]" },
+  { aset: ILUSTRASI.kelompok, teks: "Ditanam bersama", kelas: "w-full" },
+  { aset: ILUSTRASI.pulau, teks: "Tumbuh jadi hutan", kelas: "w-full" },
+  { aset: ILUSTRASI.drone, teks: "Dipantau", kelas: "w-[94%]", sembunyiHp: true },
+  { aset: ILUSTRASI.lindungi, teks: "Melindungi pesisir", kelas: "w-[78%]", sembunyiHp: true },
 ];
 
 const PERAN = [
@@ -162,8 +162,9 @@ export default function Beranda() {
 
       {/* AJAKAN */}
       <section aria-labelledby="judul-ajakan" className="wadah pt-28 sm:pt-36">
-        <div className="muncul relative overflow-hidden rounded-[2rem] bg-cover bg-center px-6 pb-40 pt-14 text-center sm:px-12 sm:pb-48 sm:pt-20" style={{ backgroundImage: `url(${LATAR.panorama})` }}>
-          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/50 to-transparent" aria-hidden="true" />
+        {/* latar langit dan ombak: bagian tengahnya kosong sehingga teks tetap terbaca tanpa lapisan tebal */}
+        <div className="muncul relative overflow-hidden rounded-[2rem] bg-cover bg-bottom px-6 pb-36 pt-16 text-center sm:px-12 sm:pb-44 sm:pt-24" style={{ backgroundImage: `url(${LATAR.langitOmbak})` }}>
+          <div className="absolute inset-x-0 top-0 h-2/3 bg-gradient-to-b from-white/40 to-transparent" aria-hidden="true" />
           <div className="relative">
             <h2 id="judul-ajakan" className="judul-section mx-auto max-w-2xl sm:text-6xl">Siap turun ke lumpur? <em>Ayo menanam.</em></h2>
             <p className="mx-auto mt-4 max-w-md text-lumpur">Kegiatan tanam dan rawat digelar saat air surut. Gratis, bibit dan alat disediakan.</p>

@@ -41,7 +41,11 @@ export default function Galeri() {
             <li key={g.id}>
               <button type="button" onClick={() => setPilih(g)}
                 className="group kartu block w-full overflow-hidden text-left transition hover:-translate-y-1 hover:shadow-[0_18px_40px_-24px_rgba(14,26,11,0.35)]">
-                <div className="overflow-hidden"><div className="transition-transform duration-500 group-hover:scale-105"><g.Gambar /></div></div>
+                <div className="aspect-[4/3] overflow-hidden bg-pasang">
+                  <img src={g.gambar.src} srcSet={g.gambar.srcSet} sizes="(min-width: 1024px) 352px, (min-width: 640px) 50vw, 100vw"
+                    alt={g.gambar.alt} width="640" height="452" loading="lazy" decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                </div>
                 <div className="flex items-center justify-between gap-4 p-5">
                   <div>
                     <p className="font-semibold text-tinta">{g.nama}</p>
@@ -54,7 +58,7 @@ export default function Galeri() {
           ))}
         </ul>
 
-        <p className="sumber mt-8 text-xs">Ilustrasi jenis bakau dan satwa pada galeri ini dibuat sendiri oleh Tim komitpnl.</p>
+        <p className="sumber mt-8 text-xs">Pilih kartu untuk membaca ciri khas setiap jenis.</p>
       </div>
 
       <dialog ref={dialog} onClose={() => setPilih(null)} onClick={(e) => e.target === dialog.current && setPilih(null)}
@@ -64,7 +68,8 @@ export default function Galeri() {
             <button type="button" onClick={() => setPilih(null)} className="tombol-bulat absolute right-4 top-4 h-10 w-10 bg-white/90" aria-label="Tutup">
               <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" /></svg>
             </button>
-            <pilih.Gambar />
+            <img src={pilih.gambar.src} srcSet={pilih.gambar.srcSet} sizes="(min-width: 640px) 608px, 100vw"
+              alt={pilih.gambar.alt} width="1200" height="847" className="aspect-[4/3] w-full bg-pasang object-cover" />
             <div className="p-6 sm:p-8">
               <p className="label-atas">{pilih.jenis}</p>
               <h2 id="judul-dialog" className="mt-2 text-4xl">{pilih.nama}</h2>

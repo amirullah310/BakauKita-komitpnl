@@ -1,5 +1,5 @@
 import { LUAS_ACEH, SUMBER } from "../data/sumber.js";
-import { ILUSTRASI, IKON } from "../data/aset.js";
+import { ILUSTRASI, IKON, LATAR } from "../data/aset.js";
 import KepalaHalaman from "../components/KepalaHalaman.jsx";
 
 const fmt = (n) => n.toLocaleString("id-ID", { maximumFractionDigits: 2 });
@@ -10,7 +10,7 @@ const MISI = [
   [IKON.komunitas, "Kolaborasi", "Bekerja sama dengan kampus, sekolah, komunitas, dan pemerintah desa pesisir agar kegiatan berlanjut."],
 ];
 
-const TIM = [["Amirullah", "Ketua tim"], ["[Nama Anggota]", "[Peran]"], ["[Nama Anggota]", "[Peran]"]];
+const TIM = [["Amirullah", "Ketua tim"], ["Muhammad Aziz", "Anggota tim"], ["Muhammad Alfisyahrin Muzhaffar", "Anggota tim"]];
 
 function GrafikLuas() {
   const maks = Math.max(...LUAS_ACEH.map(([, v]) => v));
@@ -42,10 +42,17 @@ function GrafikLuas() {
 export default function Tentang() {
   return (
     <>
-      <KepalaHalaman label="Tentang kami" judul={<>Kami ingin pesisir Lhokseumawe kembali <em>hijau</em></>} gambar={ILUSTRASI.pulih}>
+      <KepalaHalaman label="Tentang kami" judul={<>Kami ingin pesisir Lhokseumawe kembali <em>hijau</em></>} gambar={ILUSTRASI.pulau}>
         BakauKita menghubungkan warga, pelajar, dan mahasiswa dengan kegiatan rehabilitasi mangrove di pesisir Aceh.
         Pemulihan pantai paling berhasil jika dilakukan bersama masyarakat yang tinggal di sekitarnya.
       </KepalaHalaman>
+
+      <figure className="wadah muncul mt-16 sm:mt-20">
+        <img src={LATAR.laguna} alt="Ilustrasi laguna bakau saat matahari terbit, dengan bibit-bibit baru tumbuh di antara akar pohon dewasa"
+          width="1600" height="900" loading="lazy" decoding="async"
+          className="aspect-[16/9] w-full rounded-[2rem] object-cover sm:aspect-[21/9]" />
+        <figcaption className="mt-3 text-center text-sm text-abu">Pesisir yang ingin kami pulihkan: hutan bakau yang rapat, dengan bibit baru tumbuh di antaranya.</figcaption>
+      </figure>
 
       <section aria-labelledby="judul-masalah" className="wadah pt-24 sm:pt-32">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-center">
