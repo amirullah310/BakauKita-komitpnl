@@ -17,7 +17,7 @@ Fitur utama:
 - **Grafik luas mangrove** pantai timur Aceh per kabupaten/kota.
 - **9 artikel edukasi** (termasuk mangrove dan tsunami Aceh 2004, silvofishery, dan sampah plastik), masing-masing dengan daftar sumber jurnal atau media, plus **glosarium** istilah mangrove.
 - **Galeri** jenis bakau dan satwa dengan filter dan tampilan detail (dialog).
-- **Formulir pendaftaran relawan** dengan validasi dan FAQ.
+- **Formulir pendaftaran relawan** dengan validasi dan FAQ; pesan dikirim lewat **WhatsApp** atau email dengan isi yang sudah terisi otomatis.
 - **Ramah pengguna**: responsif di HP, navigasi keyboard, mendukung pembaca layar, animasi masuk-keluar saat digulir (otomatis nonaktif bila pengguna memilih kurangi gerakan).
 
 Halaman yang tersedia: Beranda, Tentang, Artikel, Galeri, dan Kontak.

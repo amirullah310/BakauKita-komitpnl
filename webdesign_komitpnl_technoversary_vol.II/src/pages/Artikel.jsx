@@ -12,7 +12,7 @@ export function KartuArtikel({ a, Judul = "h3" }) {
   return (
     <a href={`#artikel-${a.slug}`} className={`group kartu flex h-full flex-col overflow-hidden text-lumpur no-underline transition ${bayangan}`}>
       <div className="flex h-48 items-center justify-center bg-pasang p-6">
-        <Gambar aset={ILUSTRASI[a.gambar]} className="h-full w-auto object-contain transition duration-500 group-hover:scale-105" />
+        <Gambar aset={ILUSTRASI[a.gambar]} sizes="220px" className="h-full w-auto object-contain transition duration-500 group-hover:scale-105" />
       </div>
       <div className="flex flex-1 flex-col p-6">
         <p className="text-xs text-abu">{a.tanggal} · {a.menit} menit baca</p>

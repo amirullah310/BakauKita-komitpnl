@@ -21,23 +21,24 @@
     <meta property="og:image:alt" content="Logo BakauKita di atas ilustrasi laguna bakau saat matahari terbit" />
     <meta name="twitter:card" content="summary_large_image" />
     <!--
-      Layar pemuat: ditulis langsung di HTML (bukan di React) supaya muncul seketika,
-      sebelum JavaScript dan CSS utama selesai diunduh. Dihapus oleh src/main.jsx.
+      Layar pemuat (kelas .pemuat). Versi awal ditulis langsung di HTML supaya muncul seketika,
+      sebelum JavaScript selesai diunduh, lalu dihapus oleh src/main.jsx. Gaya yang sama dipakai
+      lagi oleh komponen React PemuatHalaman setiap kali pindah halaman.
       Animasi: logo "tumbuh" dari akar ke daun (warna terisi dari bawah ke atas).
     -->
     <style>
-      #pemuat {
+      .pemuat {
         position: fixed; inset: 0; z-index: 9999;
         display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
         background: #ffffff;
-        transition: opacity 450ms ease, visibility 0s linear 450ms;
+        transition: opacity 300ms ease, visibility 0s linear 300ms;
       }
-      #pemuat.selesai { opacity: 0; visibility: hidden; }
-      #pemuat.selesai .pemuat-logo { transform: scale(1.08); }
-      .pemuat-logo { position: relative; width: 132px; height: 132px; transition: transform 450ms ease; }
+      .pemuat.selesai { opacity: 0; visibility: hidden; }
+      .pemuat.selesai .pemuat-logo { transform: scale(1.08); }
+      .pemuat-logo { position: relative; width: 132px; height: 132px; transition: transform 300ms ease; }
       .pemuat-logo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
       .pemuat-bayang { opacity: 0.14; filter: grayscale(1); }
-      .pemuat-warna { animation: pemuat-tumbuh 1s cubic-bezier(.45,.05,.35,1) infinite; }
+      .pemuat-warna { animation: pemuat-tumbuh 0.8s cubic-bezier(.45,.05,.35,1) infinite; }
       .pemuat-nama {
         margin: 0; font: 700 1.25rem/1 "Plus Jakarta Sans Variable", system-ui, sans-serif; letter-spacing: -0.02em; color: #0E1A0B;
       }
@@ -45,7 +46,7 @@
       .pemuat-garis::after {
         content: ""; position: absolute; inset: 0; width: 40%; border-radius: inherit;
         background: linear-gradient(90deg, #5BA524, #7DBE1E);
-        animation: pemuat-jalan 1.1s ease-in-out infinite;
+        animation: pemuat-jalan 0.8s ease-in-out infinite;
       }
       .pemuat-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
       @keyframes pemuat-tumbuh {
@@ -59,13 +60,13 @@
       @media (prefers-reduced-motion: reduce) {
         .pemuat-warna, .pemuat-garis::after { animation: none; }
         .pemuat-garis::after { width: 100%; }
-        #pemuat, .pemuat-logo { transition-duration: 1ms; }
+        .pemuat, .pemuat-logo { transition-duration: 1ms; }
       }
     </style>
-    <noscript><style>#pemuat { display: none; }</style></noscript>
+    <noscript><style>.pemuat { display: none; }</style></noscript>
   </head>
   <body>
-    <div id="pemuat" role="status" aria-live="polite">
+    <div id="pemuat" class="pemuat" role="status" aria-live="polite">
       <div class="pemuat-logo" aria-hidden="true">
         <img class="pemuat-bayang" src="/logo.webp" alt="" width="132" height="132" />
         <img class="pemuat-warna" src="/logo.webp" alt="" width="132" height="132" />
@@ -75,11 +76,6 @@
       <span class="pemuat-sr">Memuat halaman BakauKita…</span>
     </div>
     <script>
-      // Pemuat hanya tampil di kunjungan pertama dalam satu sesi; setelah itu langsung ke konten.
-      try {
-        if (sessionStorage.getItem("bakaukita-dikunjungi")) document.getElementById("pemuat").remove();
-        else sessionStorage.setItem("bakaukita-dikunjungi", "1");
-      } catch (e) { /* penyimpanan diblokir: tetap tampilkan pemuat seperti biasa */ }
       // Pengaman: jika skrip utama gagal dimuat, jangan biarkan pemuat menutupi halaman selamanya.
       setTimeout(function () { var p = document.getElementById("pemuat"); if (p) p.remove(); }, 10000);
     </script>

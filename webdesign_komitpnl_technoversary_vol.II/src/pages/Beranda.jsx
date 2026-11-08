@@ -65,10 +65,12 @@ export default function Beranda() {
           </div>
         </div>
 
-        <ol className="wadah mt-14 grid grid-cols-3 items-end gap-3 sm:mt-20 sm:grid-cols-5 sm:gap-6" aria-label="Perjalanan sebatang bibit bakau">
+        {/* items-stretch: semua kolom setinggi baris, jadi kelimanya terlihat (dan dianimasikan) bersamaan
+            walaupun tinggi ilustrasinya berbeda; ilustrasi tetap rata bawah lewat justify-end */}
+        <ol className="wadah mt-14 grid grid-cols-3 items-stretch gap-3 sm:mt-20 sm:grid-cols-5 sm:gap-6" aria-label="Perjalanan sebatang bibit bakau">
           {PERJALANAN.map((p, i) => (
-            <li key={p.teks} className={`muncul flex flex-col items-center ${p.sembunyiHp ? "hidden sm:flex" : ""}`} style={{ transitionDelay: `${i * 70}ms` }}>
-              <Gambar aset={p.aset} loading="eager" className={`h-auto ${p.kelas} max-w-[220px] animate-apung`} style={{ animationDelay: `${i * -1.2}s` }} />
+            <li key={p.teks} className={`muncul flex flex-col items-center justify-end ${p.sembunyiHp ? "hidden sm:flex" : ""}`} style={{ transitionDelay: `${i * 70}ms` }}>
+              <Gambar aset={p.aset} loading="eager" sizes="(min-width: 640px) 220px, 30vw" className={`h-auto ${p.kelas} max-w-[220px] animate-apung`} style={{ animationDelay: `${i * -1.2}s` }} />
               <span className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-garis to-transparent" aria-hidden="true" />
               <span className="mt-3 text-center text-xs text-abu"><span className="mr-1 font-semibold text-tinta">{String(i + 1).padStart(2, "0")}</span>{p.teks}</span>
             </li>
@@ -107,11 +109,11 @@ export default function Beranda() {
       {/* STATISTIK */}
       <section aria-labelledby="judul-lokal" className="wadah pt-28 sm:pt-36">
         <div className="grid gap-5 md:grid-cols-2">
-          <div className="muncul relative flex min-h-[230px] flex-col items-center justify-center overflow-hidden rounded-[2rem] bg-cover bg-center px-8 py-10 text-center" style={{ backgroundImage: `url(${LATAR.hijauLembut})` }}>
+          <div className="muncul relative flex min-h-[230px] flex-col items-center justify-center overflow-hidden rounded-[2rem] latar-tunda bg-cover bg-center px-8 py-10 text-center" style={{ "--latar": `url(${LATAR.hijauLembut})` }}>
             <p className="font-judul text-7xl leading-none text-tinta sm:text-8xl">{fmt(LUAS_LHOKSEUMAWE, 2)}<span className="text-4xl italic text-payau"> ha</span></p>
             <h2 id="judul-lokal" className="mt-3 font-isi text-base font-semibold tracking-normal text-tinta">Sisa hutan mangrove di Kota Lhokseumawe</h2>
           </div>
-          <div className="muncul relative flex min-h-[230px] flex-col items-center justify-start overflow-hidden rounded-[2rem] bg-cover bg-center px-8 pb-24 pt-10 text-center" style={{ backgroundImage: `url(${LATAR.biruLaut})` }}>
+          <div className="muncul relative flex min-h-[230px] flex-col items-center justify-start overflow-hidden rounded-[2rem] latar-tunda bg-cover bg-center px-8 pb-24 pt-10 text-center" style={{ "--latar": `url(${LATAR.biruLaut})` }}>
             <p className="font-judul text-7xl leading-none text-tinta sm:text-8xl">{Math.round(ACEH_TIMUR / LUAS_LHOKSEUMAWE)}<span className="ml-1 text-6xl italic text-[#0B5A78] sm:text-7xl">×</span></p>
             <p className="mt-3 max-w-xs text-base font-semibold text-tinta">lebih luas mangrove di Aceh Timur ({fmt(ACEH_TIMUR)} ha)</p>
           </div>
@@ -169,7 +171,7 @@ export default function Beranda() {
       {/* AJAKAN */}
       <section aria-labelledby="judul-ajakan" className="wadah pt-28 sm:pt-36">
         {/* latar langit dan ombak: bagian tengahnya kosong sehingga teks tetap terbaca tanpa lapisan tebal */}
-        <div className="muncul relative overflow-hidden rounded-[2rem] bg-cover bg-bottom px-6 pb-36 pt-16 text-center sm:px-12 sm:pb-44 sm:pt-24" style={{ backgroundImage: `url(${LATAR.langitOmbak})` }}>
+        <div className="muncul relative overflow-hidden rounded-[2rem] latar-tunda bg-cover bg-bottom px-6 pb-36 pt-16 text-center sm:px-12 sm:pb-44 sm:pt-24" style={{ "--latar": `url(${LATAR.langitOmbak})` }}>
           <div className="absolute inset-x-0 top-0 h-2/3 bg-gradient-to-b from-white/40 to-transparent" aria-hidden="true" />
           <div className="relative">
             <h2 id="judul-ajakan" className="judul-section mx-auto max-w-2xl sm:text-6xl">Siap turun ke lumpur? <em>Ayo menanam.</em></h2>

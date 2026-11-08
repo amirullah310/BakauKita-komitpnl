@@ -50,14 +50,16 @@
   .muncul {
     opacity: 0; transform: translate3d(0, 28px, 0) scale(0.985);
     transition: opacity 650ms ease, transform 800ms cubic-bezier(.2,.7,.2,1);
-    will-change: opacity, transform;
   }
   .muncul[data-arah="atas"] { transform: translate3d(0, -28px, 0) scale(0.985); }
   .muncul.terlihat { opacity: 1; transform: none; }
+  /* latar besar baru diunduh saat kotaknya pertama kali terlihat (lihat useMuncul) */
+  .latar-tunda.pernah { background-image: var(--latar); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .muncul, .muncul[data-arah] { opacity: 1; transform: none; }
+  .latar-tunda { background-image: var(--latar); }
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }

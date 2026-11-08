@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import KeAtas from "./components/KeAtas.jsx";
+import PemuatHalaman from "./components/PemuatHalaman.jsx";
 import Beranda from "./pages/Beranda.jsx";
 import Tentang from "./pages/Tentang.jsx";
 import Artikel from "./pages/Artikel.jsx";
@@ -25,11 +26,11 @@ function bacaHash() {
 function useMuncul(kunci) {
   useEffect(() => {
     const el = [...document.querySelectorAll(".muncul")];
-    if (!("IntersectionObserver" in window)) { el.forEach((e) => e.classList.add("terlihat")); return; }
+    if (!("IntersectionObserver" in window)) { el.forEach((e) => e.classList.add("terlihat", "pernah")); return; }
     const io = new IntersectionObserver((entri) => {
       entri.forEach(({ target, isIntersecting, boundingClientRect, rootBounds }) => {
         if (isIntersecting) {
-          target.classList.add("terlihat");
+          target.classList.add("terlihat", "pernah"); // "pernah" tidak dihapus: dipakai untuk memuat latar sekali saja
         } else {
           const tengah = (rootBounds?.height ?? window.innerHeight) / 2;
           target.dataset.arah = boundingClientRect.top < tengah ? "atas" : "bawah";
@@ -77,6 +78,8 @@ export default function App() {
       </main>
       <Footer />
       <KeAtas />
+      {/* hanya halaman (dan artikel) yang dihitung pindah; lompat ke bagian di halaman yang sama tidak memicu pemuat */}
+      <PemuatHalaman kunci={rute.halaman + (rute.slug ?? "")} />
     </>
   );
 }

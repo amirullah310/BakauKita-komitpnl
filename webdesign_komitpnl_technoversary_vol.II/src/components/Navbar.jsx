@@ -9,10 +9,11 @@ const MENU = [
 ];
 
 // Logo BakauKita (public/logo.webp, latar transparan). Dekoratif: nama "BakauKita" selalu ditulis di sebelahnya.
-export const LOGO_SRC = `${import.meta.env.BASE_URL}logo.webp`;
+export const LOGO_SRC = `${import.meta.env.BASE_URL}logo.webp`; // 256 px, untuk layar pemuat
+const LOGO_KECIL = `${import.meta.env.BASE_URL}logo-kecil.webp`; // 96 px, untuk navbar & footer
 
 export function Logo({ className = "h-9 w-9" }) {
-  return <img src={LOGO_SRC} alt="" width="36" height="36" className={`${className} object-contain`} decoding="async" />;
+  return <img src={LOGO_KECIL} alt="" width="36" height="36" className={`${className} object-contain`} decoding="async" />;
 }
 
 export function Merek({ className = "" }) {

@@ -13,16 +13,16 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 );
 
 // Tutup layar pemuat (lihat index.html) setelah aplikasi tampil dan font siap.
-// Tampil minimal ~0,65 detik agar animasi logo "tumbuh" sempat selesai sekali
-// (lebih singkat jika pengguna memilih kurangi gerakan). Pada kunjungan berikutnya
-// dalam sesi yang sama, pemuat sudah dihapus oleh skrip di index.html.
+// Tampil minimal ~0,5 detik agar animasi logo "tumbuh" sempat terlihat
+// (lebih singkat jika pengguna memilih kurangi gerakan).
+// Saat pindah halaman, pemuat yang sama ditampilkan oleh komponen PemuatHalaman.
 const pemuat = document.getElementById("pemuat");
 if (pemuat) {
   const kurangiGerak = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const minimal = new Promise((r) => setTimeout(r, Math.max(0, (kurangiGerak ? 250 : 650) - performance.now())));
+  const minimal = new Promise((r) => setTimeout(r, Math.max(0, (kurangiGerak ? 200 : 500) - performance.now())));
   const font = Promise.race([document.fonts?.ready ?? Promise.resolve(), new Promise((r) => setTimeout(r, 3000))]);
   Promise.all([minimal, font]).then(() => {
     pemuat.classList.add("selesai");
-    setTimeout(() => pemuat.remove(), 500);
+    setTimeout(() => pemuat.remove(), 350);
   });
 }
