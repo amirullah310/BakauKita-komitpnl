@@ -38,6 +38,9 @@
   .chip-pasif { @apply border-garis bg-white text-lumpur hover:border-tinta; }
 
   .sumber { @apply text-sm text-abu; }
+  /* baris geser horizontal tanpa scrollbar yang terlihat (tetap bisa digeser jari/trackpad) */
+  .tanpa-scrollbar { scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .tanpa-scrollbar::-webkit-scrollbar { display: none; }
   .label-isian { @apply mb-1.5 block text-sm font-semibold text-tinta; }
   .isian { @apply w-full rounded-xl border border-garis bg-white px-4 py-3 text-lumpur outline-none transition placeholder:text-abu/70 focus:border-tinta focus:ring-4 focus:ring-payau/10; }
   /* ditulis setelah .isian agar tetap menang saat kolom error sedang difokus */

@@ -2,6 +2,19 @@ import { LUAS_ACEH, SUMBER } from "../data/sumber.js";
 import { ILUSTRASI, IKON, LATAR } from "../data/aset.js";
 import KepalaHalaman from "../components/KepalaHalaman.jsx";
 
+// Sumber dikelompokkan menurut jenisnya; sumber yang belum masuk kelompok mana pun tetap ditampilkan di "Lainnya"
+const KELOMPOK_SUMBER = (() => {
+  const kelompok = [
+    ["Jurnal ilmiah", ["donato", "danielsen", "kerr", "plastik", "dewiyanti", "akuatika"]],
+    ["Laporan lembaga", ["fao", "nioz", "hariMangrove"]],
+    ["Media", ["mongabay", "pmn", "silvofishery", "brgm", "katadata", "teknikTanam"]],
+  ];
+  const dipakai = new Set(kelompok.flatMap(([, k]) => k));
+  const lain = Object.keys(SUMBER).filter((k) => !dipakai.has(k));
+  if (lain.length) kelompok.push(["Lainnya", lain]);
+  return kelompok.map(([judul, kunci]) => [judul, kunci.filter((k) => SUMBER[k]).map((k) => SUMBER[k])]);
+})();
+
 const fmt = (n) => n.toLocaleString("id-ID", { maximumFractionDigits: 2 });
 
 const MISI = [
@@ -10,7 +23,11 @@ const MISI = [
   [IKON.komunitas, "Kolaborasi", "Bekerja sama dengan kampus, sekolah, komunitas, dan pemerintah desa pesisir agar kegiatan berlanjut."],
 ];
 
-const TIM = [["Amirullah", "Ketua tim"], ["Muhammad Aziz", "Anggota tim"], ["Muhammad Alfisyahrin Muzhaffar", "Anggota tim"]];
+const TIM = [
+  ["Amirullah", "Ketua tim · Front‑end Developer"],
+  ["Muhammad Aziz", "UI/UX Designer"],
+  ["Muhammad Alfisyahrin Muzhaffar", "Riset & Penulis Konten"],
+];
 
 function GrafikLuas() {
   const maks = Math.max(...LUAS_ACEH.map(([, v]) => v));
@@ -112,12 +129,24 @@ export default function Tentang() {
       </section>
 
       <section aria-labelledby="judul-sumber" className="wadah pt-24">
-        <h2 id="judul-sumber" className="text-3xl">Sumber data</h2>
-        <ul className="mt-5 max-w-4xl list-disc space-y-2 pl-5 text-sm marker:text-daun">
-          {Object.values(SUMBER).map((s) => (
-            <li key={s.url}><a href={s.url} target="_blank" rel="noreferrer">{s.teks}</a></li>
+        <h2 id="judul-sumber" className="text-3xl sm:text-4xl">Sumber data</h2>
+        <p className="mt-2 text-abu">Semua angka dan klaim di situs ini dapat ditelusuri ke {Object.keys(SUMBER).length} sumber berikut.</p>
+        <div className="mt-8 grid gap-5 lg:grid-cols-3">
+          {KELOMPOK_SUMBER.map(([judul, daftar]) => (
+            <div key={judul} className="kartu p-6">
+              <h3 className="flex items-baseline justify-between gap-3 text-base">
+                {judul} <span className="text-sm font-normal tabular-nums text-abu">{daftar.length}</span>
+              </h3>
+              <ul className="mt-4 space-y-3 text-sm">
+                {daftar.map((s) => (
+                  <li key={s.url} className="border-t border-garis pt-3 first:border-0 first:pt-0">
+                    <a href={s.url} target="_blank" rel="noreferrer" className="leading-relaxed">{s.teks}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
       </section>
     </>
   );

@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { ARTIKEL } from "../data/artikel.js";
+import { ARTIKEL, KATEGORI } from "../data/artikel.js";
 import { GLOSARIUM } from "../data/edukasi.js";
 import { ILUSTRASI } from "../data/aset.js";
 import Gambar from "../components/Gambar.jsx";
 import KepalaHalaman from "../components/KepalaHalaman.jsx";
+import TombolBagikan from "../components/TombolBagikan.jsx";
 
 const bayangan = "hover:-translate-y-1 hover:shadow-[0_18px_40px_-24px_rgba(14,26,11,0.35)]";
 
@@ -15,7 +16,10 @@ export function KartuArtikel({ a, Judul = "h3" }) {
         <Gambar aset={ILUSTRASI[a.gambar]} sizes="220px" className="h-full w-auto object-contain transition duration-500 group-hover:scale-105" />
       </div>
       <div className="flex flex-1 flex-col p-6">
-        <p className="text-xs text-abu">{a.tanggal} · {a.menit} menit baca</p>
+        <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-abu">
+          <span className="rounded-full bg-pasang px-2.5 py-0.5 font-semibold text-payau">{a.kategori}</span>
+          {a.tanggal} · {a.menit} menit baca
+        </p>
         <Judul className="mt-2 font-isi text-lg font-semibold leading-snug tracking-tight text-tinta group-hover:text-payau">{a.judul}</Judul>
         <p className="mt-2 line-clamp-2 text-sm text-abu">{a.ringkas}</p>
         <span className="mt-auto pt-5 text-sm font-semibold text-tinta">Baca <span aria-hidden="true" className="inline-block transition group-hover:translate-x-1">→</span></span>
@@ -69,7 +73,7 @@ function Baca({ a }) {
         <span aria-hidden="true">←</span> Semua artikel
       </a>
       <header className="mx-auto mt-10 max-w-3xl text-center">
-        <p className="text-sm text-abu">{a.tanggal} · {a.menit} menit baca · Tim komitpnl</p>
+        <p className="text-sm text-abu"><span className="font-semibold text-payau">{a.kategori}</span> · {a.tanggal} · {a.menit} menit baca · Tim komitpnl</p>
         <h1 className="mt-4 text-5xl sm:text-6xl">{a.judul}</h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-abu">{a.ringkas}</p>
       </header>
@@ -78,6 +82,9 @@ function Baca({ a }) {
       </div>
       <div className="mx-auto max-w-baca">
         <div className="mt-6"><Isi blok={a.isi} /></div>
+        <div className="mt-10">
+          <TombolBagikan label="Bagikan artikel ini" judul={a.judul} teks={a.ringkas} hash={`#artikel-${a.slug}`} />
+        </div>
         <aside className="mt-12 border-t border-garis pt-6">
           <h2 className="font-isi text-sm font-semibold tracking-normal text-tinta">Sumber</h2>
           <ul className="mt-3 space-y-2 text-sm">
@@ -98,17 +105,42 @@ function Baca({ a }) {
 
 export default function Artikel({ slug }) {
   const pilih = ARTIKEL.find((a) => a.slug === slug);
-  if (pilih) return <Baca a={pilih} />;
-  // terbaru lebih dulu; artikel paling baru menjadi kartu utama
-  const [utama, ...lain] = [...ARTIKEL].reverse();
+  return pilih ? <Baca a={pilih} /> : <DaftarArtikel />;
+}
+
+const FILTER = ["Semua", ...KATEGORI];
+
+function DaftarArtikel() {
+  const [filter, setFilter] = useState("Semua");
+  // terbaru lebih dulu; pada "Semua", artikel paling baru menjadi kartu utama
+  const urut = [...ARTIKEL].reverse();
+  const tersaring = filter === "Semua" ? urut : urut.filter((a) => a.kategori === filter);
+  const [utama, ...lain] = urut;
+  const grid = filter === "Semua" ? lain : tersaring;
   return (
     <section aria-labelledby="judul-artikel">
       <KepalaHalaman id="judul-artikel" label="Artikel" judul={<>Bacaan singkat tentang <em>mangrove</em></>}>
         Dari fungsi akarnya hingga kondisi pesisir Aceh hari ini.
       </KepalaHalaman>
 
-      <div className="wadah mt-14">
-        <a href={`#artikel-${utama.slug}`} className={`group grid overflow-hidden rounded-[2rem] border border-garis text-lumpur no-underline transition md:grid-cols-[1fr_1.1fr] ${bayangan}`}>
+      <div className="wadah mt-12">
+        <div role="group" aria-label="Saring artikel menurut kategori" className="tanpa-scrollbar -mx-5 flex overflow-x-auto px-5 sm:mx-0 sm:px-0">
+          <div className="inline-flex shrink-0 rounded-full border border-garis bg-pasang p-1">
+            {FILTER.map((f) => (
+              <button key={f} type="button" aria-pressed={filter === f} onClick={() => setFilter(f)}
+                className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold transition sm:px-5 ${filter === f ? "bg-tinta text-white shadow-sm" : "text-abu hover:text-tinta"}`}>
+                {f}
+                <span className={`ml-1.5 tabular-nums ${filter === f ? "text-white/60" : "text-abu/70"}`}>
+                  {f === "Semua" ? ARTIKEL.length : ARTIKEL.filter((a) => a.kategori === f).length}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+        <p className="sr-only" role="status" aria-live="polite">{tersaring.length} artikel ditampilkan</p>
+
+        {filter === "Semua" && (
+        <a href={`#artikel-${utama.slug}`} className={`group mt-8 grid overflow-hidden rounded-[2rem] border border-garis text-lumpur no-underline transition md:grid-cols-[1fr_1.1fr] ${bayangan}`}>
           <div className="flex items-center justify-center bg-pasang p-10">
             <Gambar aset={ILUSTRASI[utama.gambar]} loading="eager" className="h-56 w-auto object-contain transition duration-500 group-hover:scale-105" />
           </div>
@@ -116,13 +148,14 @@ export default function Artikel({ slug }) {
             <p className="label-atas">Pilihan redaksi</p>
             <h2 className="mt-4 text-4xl sm:text-5xl">{utama.judul}</h2>
             <p className="mt-4 text-abu">{utama.ringkas}</p>
-            <p className="mt-6 text-sm text-abu">{utama.tanggal} · {utama.menit} menit baca</p>
+            <p className="mt-6 text-sm text-abu">{utama.kategori} · {utama.tanggal} · {utama.menit} menit baca</p>
           </div>
         </a>
+        )}
 
-        <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {lain.map((a, i) => (
-            <div key={a.slug} className="muncul" style={{ transitionDelay: `${(i % 3) * 90}ms` }}>
+        <div className={`grid gap-5 md:grid-cols-2 lg:grid-cols-3 ${filter === "Semua" ? "mt-6" : "mt-8"}`}>
+          {grid.map((a) => (
+            <div key={a.slug}>
               <KartuArtikel a={a} Judul="h2" />
             </div>
           ))}

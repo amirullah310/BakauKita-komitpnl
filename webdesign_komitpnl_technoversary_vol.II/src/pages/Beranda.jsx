@@ -4,7 +4,7 @@ import AksiRumah from "../components/AksiRumah.jsx";
 import Kuis from "../components/Kuis.jsx";
 import { ARTIKEL } from "../data/artikel.js";
 import { SUMBER, LUAS_LHOKSEUMAWE, LUAS_ACEH } from "../data/sumber.js";
-import { ILUSTRASI, IKON, LATAR, DEKOR } from "../data/aset.js";
+import { ILUSTRASI, IKON, LATAR } from "../data/aset.js";
 import Gambar from "../components/Gambar.jsx";
 import { KartuArtikel } from "./Artikel.jsx";
 
@@ -15,8 +15,8 @@ const PERJALANAN = [
   { aset: ILUSTRASI.bibit, teks: "Bibit", kelas: "w-[62%]" },
   { aset: ILUSTRASI.kelompok, teks: "Ditanam bersama", kelas: "w-full" },
   { aset: ILUSTRASI.pulau, teks: "Tumbuh jadi hutan", kelas: "w-full" },
-  { aset: ILUSTRASI.drone, teks: "Dipantau", kelas: "w-[94%]", sembunyiHp: true },
-  { aset: ILUSTRASI.lindungi, teks: "Melindungi pesisir", kelas: "w-[78%]", sembunyiHp: true },
+  { aset: ILUSTRASI.drone, teks: "Dipantau", kelas: "w-[94%]" },
+  { aset: ILUSTRASI.lindungi, teks: "Melindungi pesisir", kelas: "w-[78%]" },
 ];
 
 const PERAN = [
@@ -48,7 +48,13 @@ export default function Beranda() {
   return (
     <>
       {/* HERO */}
-      <section aria-labelledby="judul-hero" className="relative overflow-hidden">
+      <section aria-labelledby="judul-hero" className="relative isolate overflow-hidden">
+        {/* cahaya hijau sangat samar di belakang judul, memberi kedalaman tanpa mengubah latar putih */}
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[46rem]"
+          style={{ background: "radial-gradient(ellipse 55% 50% at 50% 30%, rgba(228,241,214,0.6), transparent 70%)" }}
+          aria-hidden="true"
+        />
         <div className="wadah pt-16 text-center sm:pt-24">
           <h1 id="judul-hero" className="muncul mx-auto max-w-4xl text-[3.25rem] sm:text-7xl lg:text-[5.5rem]">
             Air pasang selalu datang, <em>akar bakau</em> yang menahan.
@@ -67,15 +73,54 @@ export default function Beranda() {
 
         {/* items-stretch: semua kolom setinggi baris, jadi kelimanya terlihat (dan dianimasikan) bersamaan
             walaupun tinggi ilustrasinya berbeda; ilustrasi tetap rata bawah lewat justify-end */}
-        <ol className="wadah mt-14 grid grid-cols-3 items-stretch gap-3 sm:mt-20 sm:grid-cols-5 sm:gap-6" aria-label="Perjalanan sebatang bibit bakau">
-          {PERJALANAN.map((p, i) => (
-            <li key={p.teks} className={`muncul flex flex-col items-center justify-end ${p.sembunyiHp ? "hidden sm:flex" : ""}`} style={{ transitionDelay: `${i * 70}ms` }}>
-              <Gambar aset={p.aset} loading="eager" sizes="(min-width: 640px) 220px, 30vw" className={`h-auto ${p.kelas} max-w-[220px] animate-apung`} style={{ animationDelay: `${i * -1.2}s` }} />
-              <span className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-garis to-transparent" aria-hidden="true" />
-              <span className="mt-3 text-center text-xs text-abu"><span className="mr-1 font-semibold text-tinta">{String(i + 1).padStart(2, "0")}</span>{p.teks}</span>
-            </li>
-          ))}
-        </ol>
+        <div className="relative mt-14 sm:mt-20">
+          {/* pita air pasang: dua lapis gelombang yang bergerak pelan, tempat ilustrasi "berpijak" */}
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-7 hidden h-24 overflow-hidden sm:block"
+            style={{ maskImage: "linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent)", WebkitMaskImage: "linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent)" }}
+            aria-hidden="true"
+          >
+            <svg viewBox="0 0 1200 96" preserveAspectRatio="none" className="absolute bottom-0 left-0 h-full w-[200%] animate-ombak-balik">
+              <defs>
+                <linearGradient id="air-belakang" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stopColor="#9FD8E2" stopOpacity="0.55" />
+                  <stop offset="1" stopColor="#9FD8E2" stopOpacity="0" />
+                </linearGradient>
+                <linearGradient id="air-depan" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stopColor="#CBEBE6" stopOpacity="0.95" />
+                  <stop offset="1" stopColor="#E6F5EF" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+              <path d="M0 34 Q 150 10 300 34 T 600 34 T 900 34 T 1200 34 V96 H0 Z" fill="url(#air-belakang)" />
+            </svg>
+            <svg viewBox="0 0 1200 96" preserveAspectRatio="none" className="absolute bottom-0 left-0 h-[82%] w-[200%] animate-ombak">
+              <path d="M0 30 Q 150 12 300 30 T 600 30 T 900 30 T 1200 30 V96 H0 Z" fill="url(#air-depan)" />
+              <path d="M0 30 Q 150 12 300 30 T 600 30 T 900 30 T 1200 30" fill="none" stroke="#FFFFFF" strokeOpacity="0.9" strokeWidth="2" vectorEffect="non-scaling-stroke" />
+            </svg>
+          </div>
+          {/* HP: grid 6 kolom, tiap ilustrasi 2 kolom -> 3 di atas, 2 di bawah (baris bawah digeser 1 kolom
+              agar berada di tengah). Desktop: 5 kolom dalam satu baris di atas pita air. */}
+          <ol className="wadah relative grid grid-cols-6 items-stretch gap-x-3 gap-y-8 sm:grid-cols-5 sm:gap-6" aria-label="Perjalanan sebatang bibit bakau">
+            {PERJALANAN.map((p, i) => (
+              <li
+                key={p.teks}
+                className={`muncul col-span-2 flex flex-col items-center justify-end sm:col-span-1 ${i === 3 ? "col-start-2 sm:col-start-auto" : ""}`}
+                style={{ transitionDelay: `${i * 70}ms` }}
+              >
+                <div className="relative flex w-full justify-center">
+                  {/* HP: genangan air kecil di bawah tiap ilustrasi (pengganti pita air yang hanya ada di desktop) */}
+                  <span
+                    className="pointer-events-none absolute -bottom-2 left-1/2 h-7 w-[120%] -translate-x-1/2 rounded-[50%] sm:hidden"
+                    style={{ background: "radial-gradient(closest-side, rgba(159,216,226,0.6), rgba(203,235,230,0.35) 55%, transparent)" }}
+                    aria-hidden="true"
+                  />
+                  <Gambar aset={p.aset} loading="eager" sizes="(min-width: 640px) 220px, 30vw" className={`relative h-auto ${p.kelas} max-w-[220px] animate-apung sm:-mb-3`} style={{ animationDelay: `${i * -1.2}s` }} />
+                </div>
+                <span className="mt-4 min-h-[2.5em] text-center text-xs leading-tight text-abu sm:mt-8 sm:min-h-0 sm:leading-normal"><span className="mr-1 font-semibold text-tinta">{String(i + 1).padStart(2, "0")}</span>{p.teks}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
       </section>
 
       {/* PASANG SURUT INTERAKTIF */}
@@ -84,7 +129,6 @@ export default function Beranda() {
           <Kepala id="judul-pasang" label="Coba sendiri" judul={<>Lihat pantai <em>dengan</em> dan <em>tanpa</em> bakau</>}>
             Geser ketinggian air, lalu bandingkan apa yang terjadi pada garis pantai dan rumah warga.
           </Kepala>
-          <Gambar aset={DEKOR.ombak} className="muncul hidden w-44 shrink-0 md:block" aria-hidden="true" />
         </div>
         <div className="muncul mt-10"><TideHero /></div>
       </section>

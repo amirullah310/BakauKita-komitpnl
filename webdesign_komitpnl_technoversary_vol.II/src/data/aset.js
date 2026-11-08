@@ -32,7 +32,6 @@ import hijauLembut from "../assets/latar-section-soft-green.webp";
 import biruLaut from "../assets/latar-section-ocean-blue.webp";
 
 import semak from "../assets/dekor-forest-bushes.webp";
-import ombak from "../assets/dekor-sea-wave.webp";
 
 export const ILUSTRASI = {
   bibit: { src: bibit, w: 245, h: 311 },
@@ -55,5 +54,4 @@ export const LATAR = { langitOmbak, laguna, hijauLembut, biruLaut };
 
 export const DEKOR = {
   semak: { src: semak, w: 302, h: 99 },
-  ombak: { src: ombak, w: 275, h: 84 },
 };

@@ -28,8 +28,14 @@ export default {
       maxWidth: { baca: "65ch" },
       keyframes: {
         apung: { "0%, 100%": { transform: "translateY(0)" }, "50%": { transform: "translateY(-6px)" } },
+        // pita gelombang dua kali lebar wadah; geser setengahnya agar berulang mulus
+        ombak: { "0%": { transform: "translateX(0)" }, "100%": { transform: "translateX(-50%)" } },
       },
-      animation: { apung: "apung 6s ease-in-out infinite" },
+      animation: {
+        apung: "apung 6s ease-in-out infinite",
+        ombak: "ombak 16s linear infinite",
+        "ombak-balik": "ombak 24s linear infinite reverse",
+      },
     },
   },
   plugins: [],

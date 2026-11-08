@@ -1,34 +1,5 @@
-import { useState } from "react";
 import { AKSI } from "../data/edukasi.js";
-
-// Tombol bagikan: pakai menu bagikan bawaan HP bila ada, jika tidak salin tautan ke clipboard
-function TombolBagikan() {
-  const [status, setStatus] = useState("");
-  async function bagikan() {
-    const url = window.location.href.split("#")[0];
-    const data = { title: "BakauKita", text: "Kenali dan jaga mangrove pesisir Aceh bersama BakauKita.", url };
-    if (navigator.share) {
-      try { await navigator.share(data); return; }
-      catch (e) { if (e?.name === "AbortError") return; } // dibatalkan pengguna; selain itu, coba salin
-    }
-    try {
-      await navigator.clipboard.writeText(url);
-      setStatus("Tautan disalin");
-    } catch {
-      setStatus("Salin tautan dari bilah alamat");
-    }
-    setTimeout(() => setStatus(""), 2500);
-  }
-  return (
-    <div className="flex flex-wrap items-center gap-3">
-      <button type="button" onClick={bagikan} className="tombol bg-white text-tinta hover:bg-pasang">
-        <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10 3v10M6 7l4-4 4 4M4 12v4h12v-4" /></svg>
-        Bagikan situs ini
-      </button>
-      <span className="text-sm text-white/80" role="status" aria-live="polite">{status}</span>
-    </div>
-  );
-}
+import TombolBagikan from "./TombolBagikan.jsx";
 
 export default function AksiRumah() {
   return (
@@ -56,7 +27,7 @@ export default function AksiRumah() {
               <h3 className="mt-5 text-lg text-white">Bagikan informasi yang benar</h3>
               <p className="mt-2 text-white/75">Kirim situs ini ke grup keluarga atau kelas. Sertakan sumbernya agar tidak menjadi hoaks.</p>
             </div>
-            <TombolBagikan />
+            <TombolBagikan gelap />
           </div>
         </li>
       </ol>

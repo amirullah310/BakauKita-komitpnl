@@ -90,6 +90,6 @@ Repository sudah berisi workflow `.github/workflows/deploy.yml`. Letakkan folder
 
 | Nama | NIM | Peran |
 | --- | --- | --- |
-| Amirullah | 2024573010018 | Ketua tim |
-| Muhammad Aziz | 2024573010089 | Anggota tim |
-| Muhammad Alfisyahrin Muzhaffar | 2024573010113 | Anggota tim |
+| Amirullah | 2024573010018 | Ketua tim, Front-end Developer |
+| Muhammad Aziz | 2024573010089 | UI/UX Designer |
+| Muhammad Alfisyahrin Muzhaffar | 2024573010113 | Riset & Penulis Konten |

@@ -17,6 +17,30 @@ export default function Galeri() {
     if (!pilih && d.open) d.close();
   }, [pilih]);
 
+  // pindah ke jenis sebelumnya/berikutnya (dalam daftar yang sedang disaring), berputar di ujung
+  const posisi = pilih ? daftar.indexOf(pilih) : -1;
+  const geser = (arah) => setPilih(daftar[(posisi + arah + daftar.length) % daftar.length]);
+
+  useEffect(() => {
+    if (!pilih) return;
+    const tekan = (e) => {
+      if (e.key === "ArrowRight") { e.preventDefault(); geser(1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); geser(-1); }
+    };
+    document.addEventListener("keydown", tekan);
+    return () => document.removeEventListener("keydown", tekan);
+  });
+
+  // geser dengan jari di HP: usap gambar ke kiri/kanan
+  const sentuh = useRef(null);
+  const mulaiSentuh = (e) => { sentuh.current = e.touches[0].clientX; };
+  const akhirSentuh = (e) => {
+    if (sentuh.current === null) return;
+    const dx = e.changedTouches[0].clientX - sentuh.current;
+    sentuh.current = null;
+    if (Math.abs(dx) > 50) geser(dx < 0 ? 1 : -1);
+  };
+
   return (
     <section aria-labelledby="judul-galeri">
       <KepalaHalaman id="judul-galeri" label="Galeri" judul={<>Kehidupan di antara <em>akar bakau</em></>}>
@@ -62,19 +86,31 @@ export default function Galeri() {
       </div>
 
       <dialog ref={dialog} onClose={() => setPilih(null)} onClick={(e) => e.target === dialog.current && setPilih(null)}
-        className="w-[min(38rem,calc(100%-2rem))] overflow-hidden rounded-[2rem] bg-white p-0 text-lumpur shadow-2xl backdrop:bg-tinta/50 backdrop:backdrop-blur-sm" aria-labelledby="judul-dialog">
+        className="max-h-[calc(100dvh-2rem)] w-[min(38rem,calc(100%-2rem))] overflow-y-auto overscroll-contain rounded-[2rem] bg-white p-0 text-lumpur shadow-2xl backdrop:bg-tinta/50 backdrop:backdrop-blur-sm" aria-labelledby="judul-dialog">
         {pilih && (
           <div className="relative">
             <button type="button" onClick={() => setPilih(null)} className="tombol-bulat absolute right-4 top-4 h-10 w-10 bg-white/90" aria-label="Tutup">
               <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" /></svg>
             </button>
-            <img src={pilih.gambar.src} srcSet={pilih.gambar.srcSet} sizes="(min-width: 640px) 608px, 100vw"
-              alt={pilih.gambar.alt} width="1200" height="847" className="aspect-[4/3] w-full bg-pasang object-cover" />
+            <img key={pilih.id} src={pilih.gambar.src} srcSet={pilih.gambar.srcSet} sizes="(min-width: 640px) 608px, 100vw"
+              alt={pilih.gambar.alt} width="1200" height="847" className="aspect-[4/3] w-full bg-pasang object-cover"
+              onTouchStart={mulaiSentuh} onTouchEnd={akhirSentuh} />
             <div className="p-6 sm:p-8">
               <p className="label-atas">{pilih.jenis}</p>
               <h2 id="judul-dialog" className="mt-2 text-4xl">{pilih.nama}</h2>
               <p className="text-sm italic text-abu">{pilih.latin}</p>
               <p className="mt-4">{pilih.teks}</p>
+              {daftar.length > 1 && (
+                <div className="mt-7 flex items-center justify-between gap-3 border-t border-garis pt-5">
+                  <button type="button" onClick={() => geser(-1)} className="tombol-garis px-4 py-2.5 text-sm" aria-label="Jenis sebelumnya">
+                    <span aria-hidden="true">←</span> <span className="hidden sm:inline">Sebelumnya</span>
+                  </button>
+                  <p className="text-sm tabular-nums text-abu" aria-live="polite">{posisi + 1} / {daftar.length}</p>
+                  <button type="button" onClick={() => geser(1)} className="tombol-garis px-4 py-2.5 text-sm" aria-label="Jenis berikutnya">
+                    <span className="hidden sm:inline">Berikutnya</span> <span aria-hidden="true">→</span>
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         )}

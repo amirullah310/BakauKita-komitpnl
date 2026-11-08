@@ -2,9 +2,12 @@ import { SUMBER } from "./sumber.js";
 
 // Setiap artikel: paragraf disimpan sebagai array agar mudah ditambah/diubah tim.
 // Urutan array = urutan terbit (terlama di atas); halaman menampilkan yang terbaru lebih dulu.
+export const KATEGORI = ["Ekosistem", "Rehabilitasi", "Kondisi pesisir"];
+
 export const ARTIKEL = [
   {
     slug: "mangrove-indonesia",
+    kategori: "Kondisi pesisir",
     gambar: "hutan",
     judul: "Indonesia, rumah bagi seperlima mangrove dunia",
     ringkas: "Indonesia memiliki salah satu hutan mangrove terluas di dunia. Luasnya besar, tetapi sebagian dalam kondisi kritis.",
@@ -22,6 +25,7 @@ export const ARTIKEL = [
   },
   {
     slug: "plastik-dan-bibit-bakau",
+    kategori: "Rehabilitasi",
     gambar: "bibit",
     judul: "Sampah plastik, ancaman diam-diam bagi bakau",
     ringkas: "Plastik yang terbawa arus menumpuk di lantai hutan bakau. Pohon dewasa cukup tahan, tetapi bibit muda paling terancam.",
@@ -44,6 +48,7 @@ export const ARTIKEL = [
   },
   {
     slug: "cara-menanam-bakau",
+    kategori: "Rehabilitasi",
     gambar: "kelompok",
     judul: "Cara menanam bakau yang benar, bukan asal tancap",
     ringkas: "Banyak penanaman gagal karena hal kecil: propagul ditanam terlalu dangkal, ajir tidak diikat, atau waktu tanam tidak tepat.",
@@ -67,6 +72,7 @@ export const ARTIKEL = [
   },
   {
     slug: "silvofishery",
+    kategori: "Rehabilitasi",
     gambar: "menanam",
     judul: "Silvofishery: tambak dan bakau bisa berdampingan",
     ringkas: "Pembukaan tambak termasuk penyebab hilangnya mangrove. Silvofishery menawarkan jalan tengah: tambak tetap jalan, bakau tetap tumbuh.",
@@ -86,6 +92,7 @@ export const ARTIKEL = [
   },
   {
     slug: "penjaga-pantai",
+    kategori: "Ekosistem",
     gambar: "lindungi", // kunci ILUSTRASI di data/aset.js
     judul: "Kenapa bakau disebut penjaga pantai",
     ringkas: "Akar bakau bekerja seperti pagar alami yang meredam gelombang dan menahan lumpur agar pantai tidak terkikis.",
@@ -104,6 +111,7 @@ export const ARTIKEL = [
   },
   {
     slug: "menanam-saja-tidak-cukup",
+    kategori: "Rehabilitasi",
     gambar: "relawan",
     judul: "Menanam saja tidak cukup: pentingnya merawat bibit",
     ringkas: "Sebagian besar bibit mangrove bisa mati sebelum berumur satu tahun. Perawatan menentukan berhasil atau gagalnya penanaman.",
@@ -127,6 +135,7 @@ export const ARTIKEL = [
   },
   {
     slug: "karbon-biru",
+    kategori: "Ekosistem",
     gambar: "hutan",
     judul: "Karbon biru: harta tersembunyi di lumpur bakau",
     ringkas: "Hutan mangrove termasuk hutan paling kaya karbon di daerah tropis, dan sebagian besar karbonnya tersimpan di dalam tanah.",
@@ -144,6 +153,7 @@ export const ARTIKEL = [
   },
   {
     slug: "kondisi-pantai-timur-aceh",
+    kategori: "Kondisi pesisir",
     gambar: "drone",
     judul: "Kondisi mangrove di pantai timur Aceh",
     ringkas: "Hutan mangrove pantai timur Aceh tersebar dari Aceh Tamiang hingga Bireuen, dan sebagian besar dalam kondisi rusak berat dan sedang.",
@@ -160,6 +170,7 @@ export const ARTIKEL = [
   },
   {
     slug: "mangrove-dan-tsunami-aceh",
+    kategori: "Kondisi pesisir",
     gambar: "pulau",
     judul: "Mangrove dan tsunami Aceh 2004: pelindung, bukan tembok",
     ringkas: "Setelah tsunami 2004, bakau sering disebut penyelamat pantai. Penelitian menunjukkan perannya nyata, tetapi ada batasnya.",
