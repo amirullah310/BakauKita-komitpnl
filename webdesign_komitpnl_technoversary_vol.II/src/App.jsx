@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
+import KeAtas from "./components/KeAtas.jsx";
 import Beranda from "./pages/Beranda.jsx";
 import Tentang from "./pages/Tentang.jsx";
 import Artikel from "./pages/Artikel.jsx";
@@ -75,6 +76,7 @@ export default function App() {
         <Halaman key={rute.halaman + (rute.slug ?? "")} slug={rute.slug} />
       </main>
       <Footer />
+      <KeAtas />
     </>
   );
 }

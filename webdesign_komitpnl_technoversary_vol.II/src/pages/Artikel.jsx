@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { ARTIKEL } from "../data/artikel.js";
 import { GLOSARIUM } from "../data/edukasi.js";
 import { ILUSTRASI } from "../data/aset.js";
@@ -31,11 +32,39 @@ function Isi({ blok }) {
   });
 }
 
+// Garis tipis di bawah navbar yang memanjang sesuai seberapa jauh artikel sudah dibaca
+function ProgresBaca({ target }) {
+  const [persen, setPersen] = useState(0);
+  useEffect(() => {
+    let antre = 0;
+    const hitung = () => {
+      antre = 0;
+      const el = target.current;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      const total = r.height - window.innerHeight;
+      setPersen(total <= 0 ? 100 : Math.min(100, Math.max(0, (-r.top / total) * 100)));
+    };
+    const jadwal = () => { if (!antre) antre = requestAnimationFrame(hitung); };
+    hitung();
+    window.addEventListener("scroll", jadwal, { passive: true });
+    window.addEventListener("resize", jadwal);
+    return () => { cancelAnimationFrame(antre); window.removeEventListener("scroll", jadwal); window.removeEventListener("resize", jadwal); };
+  }, [target]);
+  return (
+    <div className="fixed inset-x-0 z-40 h-[3px] bg-transparent" style={{ top: "calc(4rem + env(safe-area-inset-top, 0px))" }} aria-hidden="true">
+      <div className="h-full origin-left bg-daun" style={{ transform: `scaleX(${persen / 100})` }} />
+    </div>
+  );
+}
+
 function Baca({ a }) {
   const i = ARTIKEL.indexOf(a);
   const lanjut = ARTIKEL[(i + 1) % ARTIKEL.length];
+  const artikelRef = useRef(null);
   return (
-    <article className="wadah pt-10 sm:pt-14">
+    <article ref={artikelRef} className="wadah pt-10 sm:pt-14">
+      <ProgresBaca target={artikelRef} />
       <a href="#artikel" className="inline-flex items-center gap-2 text-sm font-semibold text-abu no-underline hover:text-tinta">
         <span aria-hidden="true">←</span> Semua artikel
       </a>

@@ -12,10 +12,13 @@ Fitur utama:
 
 - **Ilustrasi pasang surut interaktif** di beranda: pengunjung mengatur ketinggian air dan membandingkan pantai dengan dan tanpa sabuk bakau.
 - **Simulasi tanam**: menghitung luas lahan yang pulih, potensi simpanan karbon, dan perkiraan bibit yang bertahan dari jumlah bibit dan jarak tanam yang dipilih.
+- **Aksi dari rumah**: enam kebiasaan untuk membantu menjaga bakau tanpa harus turun ke lapangan, dengan tombol bagikan situs.
+- **Kuis interaktif** 5 soal dengan umpan balik langsung, penjelasan, dan skor akhir.
 - **Grafik luas mangrove** pantai timur Aceh per kabupaten/kota.
-- **Artikel** edukasi dengan sumber data yang jelas.
+- **9 artikel edukasi** (termasuk mangrove dan tsunami Aceh 2004, silvofishery, dan sampah plastik), masing-masing dengan daftar sumber jurnal atau media, plus **glosarium** istilah mangrove.
 - **Galeri** jenis bakau dan satwa dengan filter dan tampilan detail (dialog).
 - **Formulir pendaftaran relawan** dengan validasi dan FAQ.
+- **Ramah pengguna**: responsif di HP, navigasi keyboard, mendukung pembaca layar, animasi masuk-keluar saat digulir (otomatis nonaktif bila pengguna memilih kurangi gerakan).
 
 Halaman yang tersedia: Beranda, Tentang, Artikel, Galeri, dan Kontak.
 

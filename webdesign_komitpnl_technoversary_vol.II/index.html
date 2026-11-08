@@ -8,6 +8,18 @@
     <meta name="description" content="BakauKita mengajak warga Lhokseumawe dan pesisir Aceh menanam serta merawat hutan mangrove sebagai pelindung pantai." />
     <meta name="theme-color" content="#FFFFFF" />
     <title>BakauKita – Pulihkan Mangrove Pesisir Aceh</title>
+    <!-- Kartu pratinjau saat tautan dibagikan (WhatsApp, Instagram, X, dll). Gambar harus URL absolut. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content="BakauKita" />
+    <meta property="og:title" content="BakauKita – Pulihkan Mangrove Pesisir Aceh" />
+    <meta property="og:description" content="Kenali, tanam, dan rawat hutan mangrove pesisir Lhokseumawe dan Aceh. Coba simulasi pasang surut, kuis, dan baca artikel bersumber." />
+    <meta property="og:url" content="https://amirullah310.github.io/BakauKita-komitpnl/" />
+    <meta property="og:image" content="https://amirullah310.github.io/BakauKita-komitpnl/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Logo BakauKita di atas ilustrasi laguna bakau saat matahari terbit" />
+    <meta name="twitter:card" content="summary_large_image" />
     <!--
       Layar pemuat: ditulis langsung di HTML (bukan di React) supaya muncul seketika,
       sebelum JavaScript dan CSS utama selesai diunduh. Dihapus oleh src/main.jsx.
@@ -25,7 +37,7 @@
       .pemuat-logo { position: relative; width: 132px; height: 132px; transition: transform 450ms ease; }
       .pemuat-logo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
       .pemuat-bayang { opacity: 0.14; filter: grayscale(1); }
-      .pemuat-warna { animation: pemuat-tumbuh 1.4s cubic-bezier(.45,.05,.35,1) infinite; }
+      .pemuat-warna { animation: pemuat-tumbuh 1s cubic-bezier(.45,.05,.35,1) infinite; }
       .pemuat-nama {
         margin: 0; font: 700 1.25rem/1 "Plus Jakarta Sans Variable", system-ui, sans-serif; letter-spacing: -0.02em; color: #0E1A0B;
       }
@@ -63,6 +75,11 @@
       <span class="pemuat-sr">Memuat halaman BakauKita…</span>
     </div>
     <script>
+      // Pemuat hanya tampil di kunjungan pertama dalam satu sesi; setelah itu langsung ke konten.
+      try {
+        if (sessionStorage.getItem("bakaukita-dikunjungi")) document.getElementById("pemuat").remove();
+        else sessionStorage.setItem("bakaukita-dikunjungi", "1");
+      } catch (e) { /* penyimpanan diblokir: tetap tampilkan pemuat seperti biasa */ }
       // Pengaman: jika skrip utama gagal dimuat, jangan biarkan pemuat menutupi halaman selamanya.
       setTimeout(function () { var p = document.getElementById("pemuat"); if (p) p.remove(); }, 10000);
     </script>
