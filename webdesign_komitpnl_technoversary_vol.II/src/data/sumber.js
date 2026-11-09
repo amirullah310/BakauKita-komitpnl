@@ -60,6 +60,58 @@ export const SUMBER = {
     teks: "Forbes, K., & Broadhead, J. (2007). The role of coastal forests in the mitigation of tsunami impacts. FAO Regional Office for Asia and the Pacific, RAP Publication 2007/1.",
     url: "https://www.fao.org/4/ai389e/ai389E00.htm",
   },
+  asuhanMangrove: {
+    teks: "Florida Museum, University of Florida. Importance of Mangroves: Nursery.",
+    url: "https://www.floridamuseum.ufl.edu/southflorida/habitats/mangroves/importance-mangroves/",
+  },
+  mumby: {
+    teks: "Mumby, P. J., dkk. (2004). Mangroves enhance the biomass of coral reef fish communities in the Caribbean. Nature, 427, 533–536.",
+    url: "https://doi.org/10.1038/nature02286",
+  },
+  kepitingSerasah: {
+    teks: "Olafsson, E., Buchmayer, S., & Skov, M. W. (2002). The East African decapod crab Neosarmatium meinerti (de Man) sweeps mangrove floors clean of leaf litter. Ambio, 31(7–8), 569–573.",
+    url: "https://pubmed.ncbi.nlm.nih.gov/12572824/",
+  },
+  daurHara: {
+    teks: "Gao, X., Gaitan-Espitia, J. D., & Lee, S. Y. (2024). Regulatory role of sesarmid crabs in nutrient dynamics and implications for the productivity of mangroves. Estuarine, Coastal and Shelf Science, 298, 108655.",
+    url: "https://doi.org/10.1016/j.ecss.2024.108655",
+  },
+  lewis: {
+    teks: "Lewis, R. R. III. (2005). Ecological engineering for successful management and restoration of mangrove forests. Ecological Engineering, 24, 403–418.",
+    url: "https://doi.org/10.1016/j.ecoleng.2004.10.003",
+  },
+  wetlandsRestorasi: {
+    teks: "Wetlands International. (2025, 1 April). Mangrove restoration toolkit.",
+    url: "https://www.wetlands.org/blog/mangrove-restoration-toolkit/",
+  },
+  manualEmr: {
+    teks: "Lewis, R. R. III, & Brown, B. (2014). Ecological Mangrove Rehabilitation: A Field Manual for Practitioners. Bab 9: Monitoring.",
+    url: "https://mangroveactionproject.org/wp-content/uploads/2023/11/Ecological-Mangrove-Rehabilitation-Field-Manual.pdf",
+  },
+  pemantauanMangrove: {
+    teks: "Kenya Forest Service. (2025). National Mangrove Ecosystem Restoration Guidelines: Monitoring and reporting. Portal National Forest Monitoring System.",
+    url: "https://nfms.kenyaforestservice.org/forest-data-maps/mangroves?tab=mangrove-restoration",
+  },
+  sedimenMangrove: {
+    teks: "Woodroffe, C. D., dkk. (2016). Mangrove sedimentation and response to relative sea-level rise. Annual Review of Marine Science, 8, 243–266.",
+    url: "https://www.usgs.gov/publications/mangrove-sedimentation-and-response-relative-sea-level-rise",
+  },
+  mukaTanahMangrove: {
+    teks: "National Park Service. (2025). Soil Surface Elevation on the Decline Again at SARI. Pemantauan tanah mangrove di Salt River Bay.",
+    url: "https://www.nps.gov/articles/000/sfcn-set-sari-2024.htm",
+  },
+  ekowisataMangrove: {
+    teks: "Blanton, A., dkk. (2024). Ecotourism and mangrove conservation in Southeast Asia: Current trends and perspectives. Journal of Environmental Management, 365, 121529.",
+    url: "https://www.fs.usda.gov/rm/pubs_journals/2024/rmrs_2024_blanton_a001.pdf",
+  },
+  etikaWisata: {
+    teks: "National Parks Board Singapore. Parks and nature reserves etiquette. Panduan menjaga jalur kunjungan dan satwa liar.",
+    url: "https://www.nparks.gov.sg/visit/when-visiting-parks/etiquette/nature-parks-reserve-dos-donts",
+  },
+  wisataEdukasi: {
+    teks: "National Parks Board Singapore. Guided mangrove tours at Pasir Ris Park. Contoh kegiatan belajar tentang akar dan satwa mangrove.",
+    url: "https://www.nparks.gov.sg/visit/parks/pasir-ris-park/activities/guided-tours",
+  },
 };
 
 // Luas mangrove pantai timur Aceh (hektare), WWF Indonesia via Mongabay 2022

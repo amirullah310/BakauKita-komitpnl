@@ -55,15 +55,15 @@ export default function Beranda() {
           style={{ background: "radial-gradient(ellipse 55% 50% at 50% 30%, rgba(228,241,214,0.6), transparent 70%)" }}
           aria-hidden="true"
         />
-        <div className="wadah pt-16 text-center sm:pt-24">
-          <h1 id="judul-hero" className="muncul mx-auto max-w-4xl text-[3.25rem] sm:text-7xl lg:text-[5.5rem]">
+        <div className="wadah pt-10 text-center sm:pt-[max(2.5rem,7vh)]">
+          <h1 id="judul-hero" className="muncul mx-auto max-w-4xl text-[3.25rem] sm:text-[clamp(3.25rem,9.5vh,4.5rem)] lg:text-[clamp(3.5rem,10vh,5.5rem)]">
             Air pasang selalu datang, <em>akar bakau</em> yang menahan.
           </h1>
-          <p className="muncul mx-auto mt-6 max-w-xl text-[1.0625rem] text-abu sm:text-lg" style={{ transitionDelay: "80ms" }}>
+          <p className="muncul mx-auto mt-5 max-w-xl text-[1.0625rem] text-abu sm:text-lg" style={{ transitionDelay: "80ms" }}>
             Sebagian besar hutan mangrove di pesisir timur Aceh rusak. BakauKita mengajak warga Lhokseumawe
             menanam, merawat, dan menjaganya kembali.
           </p>
-          <div className="muncul mt-8 flex items-center justify-center gap-3" style={{ transitionDelay: "160ms" }}>
+          <div className="muncul mt-7 flex items-center justify-center gap-3" style={{ transitionDelay: "160ms" }}>
             <a href="#kontak" className="tombol-utama">Daftar jadi relawan</a>
             <a href="#beranda-pasang" className="tombol-bulat" aria-label="Gulir ke ilustrasi pasang surut">
               <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10 4v12M5 11l5 5 5-5" /></svg>
@@ -73,7 +73,7 @@ export default function Beranda() {
 
         {/* items-stretch: semua kolom setinggi baris, jadi kelimanya terlihat (dan dianimasikan) bersamaan
             walaupun tinggi ilustrasinya berbeda; ilustrasi tetap rata bawah lewat justify-end */}
-        <div className="relative mt-14 sm:mt-20">
+        <div className="relative mt-10 sm:mt-[max(2rem,5vh)]">
           {/* pita air pasang: dua lapis gelombang yang bergerak pelan, tempat ilustrasi "berpijak" */}
           <div
             className="pointer-events-none absolute inset-x-0 bottom-7 hidden h-24 overflow-hidden sm:block"
@@ -114,9 +114,9 @@ export default function Beranda() {
                     style={{ background: "radial-gradient(closest-side, rgba(159,216,226,0.6), rgba(203,235,230,0.35) 55%, transparent)" }}
                     aria-hidden="true"
                   />
-                  <Gambar aset={p.aset} loading="eager" sizes="(min-width: 640px) 220px, 30vw" className={`relative h-auto ${p.kelas} max-w-[220px] animate-apung sm:-mb-3`} style={{ animationDelay: `${i * -1.2}s` }} />
+                  <Gambar aset={p.aset} loading="eager" sizes="(min-width: 640px) 220px, 30vw" className={`relative h-auto ${p.kelas} max-w-[220px] animate-apung object-contain sm:-mb-3 sm:max-h-[min(200px,24vh)]`} style={{ animationDelay: `${i * -1.2}s` }} />
                 </div>
-                <span className="mt-4 min-h-[2.5em] text-center text-xs leading-tight text-abu sm:mt-8 sm:min-h-0 sm:leading-normal"><span className="mr-1 font-semibold text-tinta">{String(i + 1).padStart(2, "0")}</span>{p.teks}</span>
+                <span className="mt-4 min-h-[2.5em] text-center text-xs leading-tight text-abu sm:mt-7 sm:min-h-0 sm:leading-normal"><span className="mr-1 font-semibold text-tinta">{String(i + 1).padStart(2, "0")}</span>{p.teks}</span>
               </li>
             ))}
           </ol>

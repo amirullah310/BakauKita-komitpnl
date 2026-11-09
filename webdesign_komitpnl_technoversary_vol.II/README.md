@@ -15,7 +15,7 @@ Fitur utama:
 - **Aksi dari rumah**: enam kebiasaan untuk membantu menjaga bakau tanpa harus turun ke lapangan, dengan tombol bagikan situs.
 - **Kuis interaktif** 5 soal dengan umpan balik langsung, penjelasan, dan skor akhir.
 - **Grafik luas mangrove** pantai timur Aceh per kabupaten/kota.
-- **9 artikel edukasi** (termasuk mangrove dan tsunami Aceh 2004, silvofishery, dan sampah plastik), masing-masing dengan daftar sumber jurnal atau media, plus **glosarium** istilah mangrove.
+- **15 artikel edukasi** tentang ekosistem, rehabilitasi, dan kondisi pesisir (termasuk habitat ikan, peran kepiting, pemulihan pasang surut, pemantauan rehabilitasi, kenaikan muka laut, dan wisata mangrove), masing-masing dengan daftar sumber, plus **glosarium** istilah mangrove.
 - **Galeri** jenis bakau dan satwa dengan filter dan tampilan detail (dialog).
 - **Formulir pendaftaran relawan** dengan validasi dan FAQ; pesan dikirim lewat **WhatsApp** atau email dengan isi yang sudah terisi otomatis.
 - **Ramah pengguna**: responsif di HP, navigasi keyboard, mendukung pembaca layar, animasi masuk-keluar saat digulir (otomatis nonaktif bila pengguna memilih kurangi gerakan).

@@ -1,0 +1,484 @@
+{
+  "capturedAt": "2026-11-09T06:32:14.575Z",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "reducedMotion": true,
+  "total": 59,
+  "errors": [],
+  "items": [
+    {
+      "group": "halaman-utuh",
+      "file": "halaman-utuh/beranda.png",
+      "label": "Beranda — halaman lengkap",
+      "route": "#beranda",
+      "width": 1440,
+      "height": 7426
+    },
+    {
+      "group": "komponen-umum",
+      "file": "komponen-umum/01-navigasi.png",
+      "label": "Navigasi utama",
+      "route": "#beranda",
+      "width": 1440,
+      "height": 89
+    },
+    {
+      "group": "komponen-umum",
+      "file": "komponen-umum/02-footer.png",
+      "label": "Footer dan informasi situs",
+      "route": "#beranda",
+      "width": 1440,
+      "height": 378
+    },
+    {
+      "group": "beranda",
+      "file": "beranda/01-hero.png",
+      "label": "Pembuka beranda",
+      "route": "#beranda",
+      "width": 1440,
+      "height": 719
+    },
+    {
+      "group": "beranda",
+      "file": "beranda/02-pasang-surut.png",
+      "label": "Perbandingan pantai dan pasang surut",
+      "route": "#beranda",
+      "width": 1440,
+      "height": 760
+    },
+    {
+      "group": "beranda",
+      "file": "beranda/03-peran-bakau.png",
+      "label": "Tiga perlindungan bakau",
+      "route": "#beranda",
+      "width": 1440,
+      "height": 494
+    },
+    {
+      "group": "beranda",
+      "file": "beranda/04-statistik-pesisir.png",
+      "label": "Mangrove Lhokseumawe",
+      "route": "#beranda",
+      "width": 1440,
+      "height": 385
+    },
+    {
+      "group": "beranda",
+      "file": "beranda/05-simulasi-tanam.png",
+      "label": "Simulasi dampak penanaman",
+      "route": "#beranda",
+      "width": 1440,
+      "height": 685
+    },
+    {
+      "group": "beranda",
+      "file": "beranda/06-cara-ikut.png",
+      "label": "Empat langkah ikut menanam",
+      "route": "#beranda",
+      "width": 1440,
+      "height": 624
+    },
+    {
+      "group": "beranda",
+      "file": "beranda/07-aksi-dari-rumah.png",
+      "label": "Aksi dari rumah",
+      "route": "#beranda",
+      "width": 1440,
+      "height": 901
+    },
+    {
+      "group": "beranda",
+      "file": "beranda/08-kuis.png",
+      "label": "Kuis pengetahuan bakau",
+      "route": "#beranda",
+      "width": 1440,
+      "height": 449
+    },
+    {
+      "group": "beranda",
+      "file": "beranda/09-bacaan-terbaru.png",
+      "label": "Artikel terbaru",
+      "route": "#beranda",
+      "width": 1440,
+      "height": 580
+    },
+    {
+      "group": "beranda",
+      "file": "beranda/10-ajakan-relawan.png",
+      "label": "Ajakan menjadi relawan",
+      "route": "#beranda",
+      "width": 1440,
+      "height": 612
+    },
+    {
+      "group": "halaman-utuh",
+      "file": "halaman-utuh/tentang.png",
+      "label": "Tentang — halaman lengkap",
+      "route": "#tentang",
+      "width": 1440,
+      "height": 5469
+    },
+    {
+      "group": "tentang",
+      "file": "tentang/01-pengantar.png",
+      "label": "Tentang BakauKita",
+      "route": "#tentang",
+      "width": 1440,
+      "height": 412
+    },
+    {
+      "group": "tentang",
+      "file": "tentang/02-ilustrasi-laguna.png",
+      "label": "Ilustrasi laguna",
+      "route": "#tentang",
+      "width": 1440,
+      "height": 523
+    },
+    {
+      "group": "tentang",
+      "file": "tentang/03-kondisi-dan-grafik.png",
+      "label": "Kondisi mangrove dan grafik luas",
+      "route": "#tentang",
+      "width": 1440,
+      "height": 454
+    },
+    {
+      "group": "tentang",
+      "file": "tentang/04-misi.png",
+      "label": "Edukasi, aksi, dan kolaborasi",
+      "route": "#tentang",
+      "width": 1440,
+      "height": 461
+    },
+    {
+      "group": "tentang",
+      "file": "tentang/05-tim.png",
+      "label": "Tim komitpnl",
+      "route": "#tentang",
+      "width": 1440,
+      "height": 370
+    },
+    {
+      "group": "tentang",
+      "file": "tentang/06-sumber-data.png",
+      "label": "Seluruh sumber data",
+      "route": "#tentang",
+      "width": 1440,
+      "height": 2426
+    },
+    {
+      "group": "halaman-utuh",
+      "file": "halaman-utuh/artikel.png",
+      "label": "Artikel — halaman lengkap",
+      "route": "#artikel",
+      "width": 1440,
+      "height": 4578
+    },
+    {
+      "group": "artikel",
+      "file": "artikel/01-pengantar.png",
+      "label": "Pengantar artikel",
+      "route": "#artikel",
+      "width": 1440,
+      "height": 284
+    },
+    {
+      "group": "artikel",
+      "file": "artikel/02-filter-kategori.png",
+      "label": "Filter kategori artikel",
+      "route": "#artikel",
+      "width": 1440,
+      "height": 70
+    },
+    {
+      "group": "artikel",
+      "file": "artikel/03-pilihan-redaksi.png",
+      "label": "Artikel pilihan redaksi",
+      "route": "#artikel",
+      "width": 1440,
+      "height": 390
+    },
+    {
+      "group": "artikel",
+      "file": "artikel/04-daftar-artikel.png",
+      "label": "Seluruh kartu artikel",
+      "route": "#artikel",
+      "width": 1440,
+      "height": 2142
+    },
+    {
+      "group": "artikel",
+      "file": "artikel/05-glosarium.png",
+      "label": "Glosarium mangrove",
+      "route": "#artikel",
+      "width": 1440,
+      "height": 1075
+    },
+    {
+      "group": "artikel",
+      "file": "artikel/06-daftar-baris-1.png",
+      "label": "Kartu artikel — baris 1",
+      "route": "#artikel",
+      "width": 1440,
+      "height": 448
+    },
+    {
+      "group": "artikel",
+      "file": "artikel/06-daftar-baris-2.png",
+      "label": "Kartu artikel — baris 2",
+      "route": "#artikel",
+      "width": 1440,
+      "height": 449
+    },
+    {
+      "group": "artikel",
+      "file": "artikel/06-daftar-baris-3.png",
+      "label": "Kartu artikel — baris 3",
+      "route": "#artikel",
+      "width": 1440,
+      "height": 448
+    },
+    {
+      "group": "artikel",
+      "file": "artikel/06-daftar-baris-4.png",
+      "label": "Kartu artikel — baris 4",
+      "route": "#artikel",
+      "width": 1440,
+      "height": 449
+    },
+    {
+      "group": "artikel",
+      "file": "artikel/06-daftar-baris-5.png",
+      "label": "Kartu artikel — baris 5",
+      "route": "#artikel",
+      "width": 1440,
+      "height": 448
+    },
+    {
+      "group": "halaman-utuh",
+      "file": "halaman-utuh/galeri.png",
+      "label": "Galeri — halaman lengkap",
+      "route": "#galeri",
+      "width": 1440,
+      "height": 1719
+    },
+    {
+      "group": "galeri",
+      "file": "galeri/01-pengantar.png",
+      "label": "Pengantar galeri",
+      "route": "#galeri",
+      "width": 1440,
+      "height": 312
+    },
+    {
+      "group": "galeri",
+      "file": "galeri/02-filter-dan-koleksi.png",
+      "label": "Filter dan koleksi tumbuhan serta satwa",
+      "route": "#galeri",
+      "width": 1440,
+      "height": 868
+    },
+    {
+      "group": "galeri-detail",
+      "file": "galeri-detail/01-bakau.png",
+      "label": "Detail galeri: Bakau",
+      "route": "#galeri",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "group": "galeri-detail",
+      "file": "galeri-detail/02-api-api.png",
+      "label": "Detail galeri: Api-api",
+      "route": "#galeri",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "group": "galeri-detail",
+      "file": "galeri-detail/03-pedada.png",
+      "label": "Detail galeri: Pedada",
+      "route": "#galeri",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "group": "galeri-detail",
+      "file": "galeri-detail/04-tanjang.png",
+      "label": "Detail galeri: Tanjang",
+      "route": "#galeri",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "group": "galeri-detail",
+      "file": "galeri-detail/05-kepiting-bakau.png",
+      "label": "Detail galeri: Kepiting bakau",
+      "route": "#galeri",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "group": "galeri-detail",
+      "file": "galeri-detail/06-ikan-glodok.png",
+      "label": "Detail galeri: Ikan glodok",
+      "route": "#galeri",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "group": "halaman-utuh",
+      "file": "halaman-utuh/kontak.png",
+      "label": "Kontak — halaman lengkap",
+      "route": "#kontak",
+      "width": 1440,
+      "height": 1794
+    },
+    {
+      "group": "kontak",
+      "file": "kontak/01-pengantar.png",
+      "label": "Ajakan ikut menanam dan merawat",
+      "route": "#kontak",
+      "width": 1440,
+      "height": 374
+    },
+    {
+      "group": "kontak",
+      "file": "kontak/02-formulir-kontak-dan-faq.png",
+      "label": "Formulir, informasi kontak, dan tanya jawab",
+      "route": "#kontak",
+      "width": 1440,
+      "height": 866
+    },
+    {
+      "group": "kontak",
+      "file": "kontak/03-semua-jawaban-faq.png",
+      "label": "Informasi kontak dan seluruh jawaban FAQ",
+      "route": "#kontak",
+      "width": 1440,
+      "height": 1349
+    },
+    {
+      "group": "artikel-lengkap",
+      "file": "artikel-lengkap/01-mangrove-indonesia.png",
+      "label": "Indonesia, rumah bagi seperlima mangrove dunia",
+      "route": "#artikel-mangrove-indonesia",
+      "width": 1440,
+      "height": 2299
+    },
+    {
+      "group": "artikel-lengkap",
+      "file": "artikel-lengkap/02-plastik-dan-bibit-bakau.png",
+      "label": "Sampah plastik, ancaman diam-diam bagi bakau",
+      "route": "#artikel-plastik-dan-bibit-bakau",
+      "width": 1440,
+      "height": 2389
+    },
+    {
+      "group": "artikel-lengkap",
+      "file": "artikel-lengkap/03-cara-menanam-bakau.png",
+      "label": "Cara menanam bakau yang benar, bukan asal tancap",
+      "route": "#artikel-cara-menanam-bakau",
+      "width": 1440,
+      "height": 2472
+    },
+    {
+      "group": "artikel-lengkap",
+      "file": "artikel-lengkap/04-silvofishery.png",
+      "label": "Silvofishery: tambak dan bakau bisa berdampingan",
+      "route": "#artikel-silvofishery",
+      "width": 1440,
+      "height": 2491
+    },
+    {
+      "group": "artikel-lengkap",
+      "file": "artikel-lengkap/05-penjaga-pantai.png",
+      "label": "Kenapa bakau disebut penjaga pantai",
+      "route": "#artikel-penjaga-pantai",
+      "width": 1440,
+      "height": 2297
+    },
+    {
+      "group": "artikel-lengkap",
+      "file": "artikel-lengkap/06-menanam-saja-tidak-cukup.png",
+      "label": "Menanam saja tidak cukup: pentingnya merawat bibit",
+      "route": "#artikel-menanam-saja-tidak-cukup",
+      "width": 1440,
+      "height": 2287
+    },
+    {
+      "group": "artikel-lengkap",
+      "file": "artikel-lengkap/07-karbon-biru.png",
+      "label": "Karbon biru: harta tersembunyi di lumpur bakau",
+      "route": "#artikel-karbon-biru",
+      "width": 1440,
+      "height": 2246
+    },
+    {
+      "group": "artikel-lengkap",
+      "file": "artikel-lengkap/08-kondisi-pantai-timur-aceh.png",
+      "label": "Kondisi mangrove di pantai timur Aceh",
+      "route": "#artikel-kondisi-pantai-timur-aceh",
+      "width": 1440,
+      "height": 2095
+    },
+    {
+      "group": "artikel-lengkap",
+      "file": "artikel-lengkap/09-mangrove-dan-tsunami-aceh.png",
+      "label": "Mangrove dan tsunami Aceh 2004: pelindung, bukan tembok",
+      "route": "#artikel-mangrove-dan-tsunami-aceh",
+      "width": 1440,
+      "height": 2747
+    },
+    {
+      "group": "artikel-lengkap",
+      "file": "artikel-lengkap/10-mangrove-rumah-ikan-muda.png",
+      "label": "Di antara akar bakau, ikan muda tumbuh",
+      "route": "#artikel-mangrove-rumah-ikan-muda",
+      "width": 1440,
+      "height": 2680
+    },
+    {
+      "group": "artikel-lengkap",
+      "file": "artikel-lengkap/11-kepiting-dan-serasah.png",
+      "label": "Kepiting kecil, peran besar di lantai hutan bakau",
+      "route": "#artikel-kepiting-dan-serasah",
+      "width": 1440,
+      "height": 2670
+    },
+    {
+      "group": "artikel-lengkap",
+      "file": "artikel-lengkap/12-pulihkan-aliran-pasang-surut.png",
+      "label": "Pulihkan aliran air, beri bakau kesempatan tumbuh",
+      "route": "#artikel-pulihkan-aliran-pasang-surut",
+      "width": 1440,
+      "height": 2680
+    },
+    {
+      "group": "artikel-lengkap",
+      "file": "artikel-lengkap/13-memantau-pemulihan-bakau.png",
+      "label": "Catatan lapangan untuk mengukur pemulihan bakau",
+      "route": "#artikel-memantau-pemulihan-bakau",
+      "width": 1440,
+      "height": 2763
+    },
+    {
+      "group": "artikel-lengkap",
+      "file": "artikel-lengkap/14-bakau-dan-kenaikan-muka-laut.png",
+      "label": "Saat muka laut naik, bakau juga perlu beradaptasi",
+      "route": "#artikel-bakau-dan-kenaikan-muka-laut",
+      "width": 1440,
+      "height": 2697
+    },
+    {
+      "group": "artikel-lengkap",
+      "file": "artikel-lengkap/15-wisata-mangrove-yang-menjaga.png",
+      "label": "Berkunjung ke mangrove, ikut menjaga pesisir",
+      "route": "#artikel-wisata-mangrove-yang-menjaga",
+      "width": 1440,
+      "height": 2752
+    }
+  ]
+}
